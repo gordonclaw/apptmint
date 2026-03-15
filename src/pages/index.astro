@@ -1,8 +1,64 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const faqItems = [
+  { q: "How long does setup take?", a: "Most businesses are up and running in under an hour. We'll help you import your existing data and configure your calendar." },
+  { q: "Do you migrate my existing data?", a: "Yes. We'll import your client list, appointment history, and any other data from your current system at no extra cost." },
+  { q: "Is invoicing really HMRC/MTD compliant?", a: "Yes. Invoices are auto-generated with correct VAT handling, sequential numbering, and digital record-keeping that meets Making Tax Digital requirements." },
+  { q: "How do payments work?", a: "We integrate directly with Stripe. Your clients can pay by card, Apple Pay, Google Pay, or Open Banking. Funds go straight to your account." },
+  { q: "Can clients book online?", a: "Yes. You get a branded booking page and an embeddable widget for your website. Clients can book 24/7 without calling." },
+  { q: "Does it work for multiple locations?", a: "Yes. The Pro plan supports multiple locations with separate calendars, staff, and reporting per site." },
+  { q: "How do you reduce no-shows?", a: "Automatic WhatsApp and SMS reminders with one-tap confirmation. You can also collect deposits at booking to protect your time." },
+  { q: "How is my data kept secure?", a: "All data is encrypted at rest and in transit. We're ICO registered, GDPR compliant, and hosted on UK/EU infrastructure. See our security page for details." },
+  { q: "Can I integrate with my existing tools?", a: "Yes. We integrate with Stripe, GoHighLevel, WhatsApp Business API, and offer webhooks and a REST API for custom integrations." },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Apptmint",
+    url: "https://apptmint.co.uk",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description: "All-in-one appointment management platform for UK businesses. Scheduling, payments, CRM, WhatsApp reminders, MTD-compliant invoicing and AI receptionist.",
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "GBP",
+      lowPrice: "29",
+      highPrice: "99",
+      offerCount: "3",
+    },
+    featureList: [
+      "Online booking",
+      "WhatsApp booking and reminders",
+      "Stripe payments",
+      "MTD-compliant invoicing",
+      "Client CRM",
+      "Session packs and subscriptions",
+      "Payroll and commissions",
+      "AI receptionist",
+      "Multi-location support",
+      "GDPR compliant",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+];
 ---
 
-<BaseLayout title="Apptmint | Everything Your Appointment Business Needs">
+<BaseLayout
+  title="Apptmint | Appointment Booking Software for Barbers, Salons & Clinics | UK"
+  description="All-in-one appointment booking software for UK barbers, hairdressers, salons, physiotherapists and therapists. Online booking, WhatsApp reminders, Stripe payments, MTD invoicing. From £29/month."
+  schema={schema}
+>
   <!-- Hero -->
   <section class="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white pt-20 pb-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -19,6 +75,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <span class="text-mint">barber</span>
             </span>
           </span>
+          <span class="sr-only">appointment</span>
           business needs.
           <span class="block text-mint">In one place.</span>
         </h1>
@@ -347,17 +404,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Frequently asked questions</h2>
       </div>
       <div class="mx-auto mt-14 max-w-2xl">
-        {[
-          { q: "How long does setup take?", a: "Most businesses are up and running in under an hour. We'll help you import your existing data and configure your calendar." },
-          { q: "Do you migrate my existing data?", a: "Yes. We'll import your client list, appointment history, and any other data from your current system at no extra cost." },
-          { q: "Is invoicing really HMRC/MTD compliant?", a: "Yes. Invoices are auto-generated with correct VAT handling, sequential numbering, and digital record-keeping that meets Making Tax Digital requirements." },
-          { q: "How do payments work?", a: "We integrate directly with Stripe. Your clients can pay by card, Apple Pay, Google Pay, or Open Banking. Funds go straight to your account." },
-          { q: "Can clients book online?", a: "Yes. You get a branded booking page and an embeddable widget for your website. Clients can book 24/7 without calling." },
-          { q: "Does it work for multiple locations?", a: "Yes. The Pro plan supports multiple locations with separate calendars, staff, and reporting per site." },
-          { q: "How do you reduce no-shows?", a: "Automatic WhatsApp and SMS reminders with one-tap confirmation. You can also collect deposits at booking to protect your time." },
-          { q: "How is my data kept secure?", a: "All data is encrypted at rest and in transit. We're ICO registered, GDPR compliant, and hosted on UK/EU infrastructure. See our security page for details." },
-          { q: "Can I integrate with my existing tools?", a: "Yes. We integrate with Stripe, GoHighLevel, WhatsApp Business API, and offer webhooks and a REST API for custom integrations." },
-        ].map((faq) => (
+        {faqItems.map((faq) => (
           <details class="group border-b border-gray-200">
             <summary class="flex cursor-pointer items-center justify-between gap-4 py-5 text-sm font-semibold text-charcoal transition-colors duration-200 hover:text-mint [&::-webkit-details-marker]:hidden">
               <span>{faq.q}</span>

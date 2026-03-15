@@ -7,15 +7,27 @@ interface Props {
   title: string;
   description?: string;
   noindex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
   title,
   description = "Apptmint is the all-in-one platform for UK appointment businesses. Scheduling, payments, CRM, reminders and AI -- built for how you actually work.",
   noindex = false,
+  schema,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Apptmint",
+  url: "https://apptmint.co.uk",
+  description: "All-in-one appointment management platform for UK businesses. Scheduling, payments, CRM, reminders and AI.",
+  areaServed: "GB",
+  foundingDate: "2026",
+};
 ---
 
 <!doctype html>
@@ -37,9 +49,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Apptmint" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+
+    <!-- Organization schema on every page -->
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+
+    <!-- Page-specific schema -->
+    {schema && Array.isArray(schema) ? (
+      schema.map((s) => (
+        <script type="application/ld+json" set:html={JSON.stringify(s)} />
+      ))
+    ) : schema ? (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ) : null}
   </head>
   <body class="bg-white text-gray-800 font-sans">
     <Header />
