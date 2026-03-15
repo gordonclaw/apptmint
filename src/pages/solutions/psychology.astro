@@ -1,0 +1,150 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Psychology & Therapy Software | Apptmint" description="Practice management for psychology and therapy practices. Data isolation, consent management, encrypted notes and GDPR compliance.">
+
+  <!-- Header -->
+  <section class="bg-charcoal py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Psychology & Therapy</p>
+        <h1 class="mt-4 text-4xl font-black text-white sm:text-5xl">Practice management built for therapists who take data seriously</h1>
+        <p class="mt-6 text-lg leading-relaxed text-gray-400">Per-therapist data isolation, encrypted session notes, consent management and GDPR compliance from day one.</p>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a href="#" class="rounded-lg bg-mint px-8 py-4 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Start Free Trial</a>
+          <a href="/contact/" class="rounded-lg border-2 border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all duration-200 hover:border-mint hover:text-mint">Book a Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain points -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-red-400">Sound Familiar?</p>
+        <h2 class="mt-4 text-3xl font-black text-charcoal sm:text-4xl">Challenges therapy practices face every week</h2>
+      </div>
+      <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {[
+          { title: "Data isolation concerns", desc: "In a multi-therapist practice, one clinician should never see another's client notes. Most booking tools don't enforce this." },
+          { title: "Consent management gaps", desc: "Paper consent forms get lost. Digital forms aren't linked to client records. No audit trail of what was signed and when." },
+          { title: "Unsecured session notes", desc: "Notes stored in generic cloud drives or word processors with no encryption, no access controls, and no retention policies." },
+          { title: "Admin eating into clinical hours", desc: "Time spent on scheduling, invoicing and chasing payments is time not spent with clients." },
+          { title: "GDPR uncertainty", desc: "Unsure whether your current setup meets GDPR requirements for processing sensitive personal data." },
+          { title: "No centralised client view", desc: "Appointment history in one system, notes in another, invoices in a third. No single source of truth per client." },
+        ].map((p) => (
+          <div class="rounded-2xl border border-red-100 bg-red-50/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <h3 class="font-bold text-charcoal">{p.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-500">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features for psychology -->
+  <section class="bg-gray-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">How Apptmint Helps</p>
+        <h2 class="mt-4 text-3xl font-black text-charcoal sm:text-4xl">Purpose-built for therapy practices</h2>
+      </div>
+      <div class="mt-14 space-y-16">
+        {[
+          {
+            title: "Per-Therapist Data Isolation",
+            desc: "Each therapist can only access their own clients' records, notes and appointment history. Practice managers can see aggregate reporting without accessing clinical content. This is enforced at the database level, not just the UI.",
+            points: ["Database-level access isolation", "Therapist-specific client lists", "Aggregate reporting for practice managers", "No cross-therapist data leakage"],
+          },
+          {
+            title: "Consent Forms and Management",
+            desc: "Digital consent forms that clients complete before their first session. Linked directly to the client record with a timestamped audit trail. Configurable per service type. Re-consent workflows for policy changes.",
+            points: ["Digital consent forms", "Timestamped audit trail", "Linked to client records", "Re-consent workflows", "Configurable per service type"],
+          },
+          {
+            title: "Encrypted Session Notes",
+            desc: "Session notes are encrypted at rest using AES-256 and accessible only to the authoring therapist. Notes are structured with configurable templates and linked to the specific appointment. Full-text search within your own notes only.",
+            points: ["AES-256 encryption at rest", "Accessible only to authoring therapist", "Configurable note templates", "Linked to appointments", "Searchable within your own records"],
+          },
+          {
+            title: "GDPR Compliance",
+            desc: "Designed for processing special category data under UK GDPR. ICO registered, hosted in the UK/EU, with configurable data retention policies and right-to-deletion workflows. Data Processing Agreements available for multi-therapist practices.",
+            points: ["Special category data handling", "ICO registered", "Configurable retention periods", "Right-to-deletion workflows", "Data Processing Agreements"],
+          },
+          {
+            title: "Session Scheduling",
+            desc: "Smart calendar with recurring appointment support, client self-booking, and automatic reminders. Buffer time between sessions is configurable. Clients see only the availability you choose to share.",
+            points: ["Recurring session scheduling", "Configurable buffer time between clients", "Client self-booking portal", "Automatic WhatsApp/SMS/email reminders", "Therapist-controlled availability"],
+          },
+          {
+            title: "Billing and Invoicing",
+            desc: "MTD-compliant invoices generated automatically after each session. Stripe payments for card, Apple Pay and Google Pay. Session packs and subscription billing for ongoing therapy. Outstanding balance tracking and payment reminders.",
+            points: ["Automatic post-session invoicing", "Stripe payments", "Session pack billing", "Outstanding balance tracking", "MTD-compliant records"],
+          },
+        ].map((feature, i) => (
+          <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+            <div class:list={[i % 2 !== 0 && "lg:order-2"]}>
+              <h3 class="text-2xl font-black text-charcoal">{feature.title}</h3>
+              <p class="mt-4 leading-relaxed text-gray-500">{feature.desc}</p>
+            </div>
+            <div class:list={[i % 2 !== 0 && "lg:order-1"]}>
+              <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+                <ul class="space-y-3">
+                  {feature.points.map((point) => (
+                    <li class="flex items-start gap-3 text-sm text-gray-600">
+                      <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">FAQ</p>
+        <h2 class="mt-4 text-3xl font-black text-charcoal sm:text-4xl">Common questions from therapy practices</h2>
+      </div>
+      <div class="mx-auto mt-14 max-w-2xl">
+        {[
+          { q: "How does data isolation actually work?", a: "Each therapist's data is segregated at the database level using row-level security. A therapist can only query records they created or are explicitly shared with them. This is not a UI-level restriction -- it's enforced by the database itself." },
+          { q: "Can a practice manager see all client data?", a: "Practice managers see aggregate reporting (revenue, utilisation, appointment counts) but do not have access to clinical notes or session content. This separation is configurable to match your practice's governance model." },
+          { q: "Is Apptmint suitable for processing special category data?", a: "Yes. We have designed the platform with the requirements of UK GDPR Article 9 in mind. Encryption, access controls, audit logging and retention policies are all built in. We recommend reviewing our Data Processing Agreement with your data protection officer." },
+          { q: "Can clients book their own sessions?", a: "Yes. You control which time slots are available for self-booking. Clients can book, reschedule and cancel within the rules you set. New client enquiries can require a manual approval step before the first session." },
+          { q: "How are session notes structured?", a: "You can create custom note templates with fields relevant to your modality (e.g. presenting issues, interventions, homework, risk assessment). Notes are linked to the specific appointment and encrypted at rest." },
+          { q: "What happens if a therapist leaves the practice?", a: "Client records created by a departing therapist can be transferred to another practitioner with appropriate consent workflows. Alternatively, records can be archived with configurable retention periods. The process maintains a full audit trail." },
+          { q: "Do you offer a Data Processing Agreement?", a: "Yes. A DPA is available for all plans and can be executed electronically. It covers the specific requirements for processing sensitive personal data in a therapy context." },
+        ].map((faq) => (
+          <details class="group border-b border-gray-200">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 py-5 text-sm font-semibold text-charcoal transition-colors duration-200 hover:text-mint [&::-webkit-details-marker]:hidden">
+              <span>{faq.q}</span>
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="pb-5"><p class="text-sm leading-relaxed text-gray-500">{faq.a}</p></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gray-50 py-20">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <h2 class="text-3xl font-black text-charcoal sm:text-4xl">Ready to run your practice with confidence?</h2>
+      <p class="mt-4 text-gray-500">Start your 30-day free trial or book a demo tailored to therapy practices.</p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a href="#" class="rounded-lg bg-mint px-8 py-4 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Start Free Trial</a>
+        <a href="/contact/" class="rounded-lg border-2 border-gray-200 px-8 py-4 text-sm font-semibold text-charcoal transition-all duration-200 hover:border-mint hover:text-mint">Book a Demo</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

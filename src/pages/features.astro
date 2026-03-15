@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const checkIcon = '<svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>';
+
+const sections = [
+  {
+    pillar: "Scheduling",
+    color: "mint",
+    desc: "A calendar built for appointment businesses, not generic time slots.",
+    cards: [
+      { title: "Smart Calendar", desc: "Day, week and month views with drag-and-drop rescheduling. Colour-coded by service, staff or room.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>' },
+      { title: "Online Booking", desc: "Client-facing booking page and embeddable widget for your website. Available 24/7 with no phone calls needed.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>' },
+      { title: "Waitlist Management", desc: "Clients join a waitlist for popular slots. When a cancellation opens up, the next person is notified automatically.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>' },
+      { title: "Automatic Reminders", desc: "WhatsApp and SMS reminders at configurable intervals. One-tap confirmation reduces no-shows by up to 60%.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>' },
+      { title: "Room & Resource Allocation", desc: "Assign rooms, equipment or treatment beds per appointment. Avoid double-bookings and see utilisation at a glance.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>' },
+      { title: "Recurring Appointments", desc: "Set up weekly, fortnightly or custom recurrence patterns. Clients see their future bookings in one place.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>' },
+    ],
+  },
+  {
+    pillar: "Clients & CRM",
+    color: "accent",
+    desc: "Know your clients. Understand your business relationships.",
+    cards: [
+      { title: "Client Profiles", desc: "Full appointment history, session notes, documents and communication log in a single view per client.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>' },
+      { title: "Auto-Segmentation", desc: "Clients are automatically tagged as active, lapsed, pack balance low, or overdue. No manual sorting needed.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>' },
+      { title: "Targeted Messaging", desc: "Send birthday offers, re-engagement campaigns, or pack renewal reminders to the right segment at the right time.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>' },
+      { title: "Unified Inbox", desc: "All client messages from WhatsApp, email and in-app in one threaded conversation. No more checking three platforms.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>' },
+      { title: "Health Forms & Consent", desc: "Digital intake forms, medical questionnaires and consent documents. Signed electronically and stored securely.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>' },
+      { title: "Client Portal", desc: "Clients can view their upcoming appointments, remaining pack sessions, invoices and documents in a self-service portal.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>' },
+    ],
+  },
+  {
+    pillar: "Billing & Payments",
+    color: "warm",
+    desc: "Get paid faster. Invoice correctly. Stop chasing payments.",
+    cards: [
+      { title: "Stripe Payments", desc: "Accept card, Apple Pay, Google Pay and Open Banking. Funds settle directly into your bank account.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' },
+      { title: "MTD-Compliant Invoicing", desc: "Auto-generated invoices with sequential numbering, correct VAT handling and digital record-keeping for Making Tax Digital.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>' },
+      { title: "Packs & Subscriptions", desc: "Sell session bundles (e.g. 6 physio sessions). Auto-track balances, send low-balance alerts, and allow online top-up.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 00-8 0v2"/></svg>' },
+      { title: "Deposit Collection", desc: "Require a deposit at the time of booking to protect against no-shows. Configurable per service type.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>' },
+      { title: "Cash Drawer Management", desc: "Per-staff cash drawers with daily totals, close-of-day reports and reconciliation. No more end-of-week guesswork.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>' },
+      { title: "Payment Links", desc: "Generate and send one-off payment links via WhatsApp or email for outstanding balances or ad-hoc charges.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>' },
+    ],
+  },
+  {
+    pillar: "Operations",
+    color: "accent",
+    desc: "Run the business, not just the appointments.",
+    cards: [
+      { title: "Payroll & Commissions", desc: "Calculate staff pay with percentage or flat-rate commissions. Export-ready reports for your accountant.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>' },
+      { title: "Stock Management", desc: "Track consumables, set reorder alerts and monitor usage per service. Know what you need before you run out.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>' },
+      { title: "Business Reports", desc: "Occupancy rates, revenue by service and staff, trends over time. Dashboards that tell you how the business is actually doing.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>' },
+      { title: "Clinical Notes", desc: "Structured session notes with access controls. Only authorised staff can view clinical records.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>' },
+      { title: "Multi-Location Support", desc: "Separate calendars, staff rosters and reporting per site. One login, full visibility across all locations.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>' },
+      { title: "Mint AI Receptionist", desc: "AI-powered WhatsApp assistant handles bookings, confirmations, cancellations and FAQs. 24/7 availability.", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a4 4 0 014 4v2H8V6a4 4 0 014-4z"/><rect x="4" y="8" width="16" height="12" rx="2"/><line x1="9" y1="13" x2="9" y2="13.01"/><line x1="15" y1="13" x2="15" y2="13.01"/><path d="M9 17c1 1 2.5 1.5 3 1.5s2-.5 3-1.5"/></svg>' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Features | Apptmint" description="Explore all Apptmint features: smart scheduling, client CRM, billing and payments, and operations tools built for UK appointment businesses.">
+
+  <!-- Header -->
+  <section class="bg-charcoal py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Features</p>
+        <h1 class="mt-4 text-4xl font-black text-white sm:text-5xl">Everything you need to run an appointment business</h1>
+        <p class="mt-6 text-lg leading-relaxed text-gray-400">Four pillars. One platform. No duct tape.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature sections -->
+  {sections.map((section, sIdx) => (
+    <section class:list={["py-20", sIdx % 2 === 0 ? "bg-white" : "bg-gray-50"]}>
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class:list={["inline-block rounded-lg px-3 py-1 text-xs font-bold uppercase tracking-widest", section.color === "mint" ? "bg-mint/10 text-mint-dark" : section.color === "warm" ? "bg-warm/10 text-yellow-700" : "bg-accent/10 text-accent"]}>
+            {section.pillar}
+          </span>
+          <h2 class="mt-4 text-3xl font-black text-charcoal sm:text-4xl">{section.pillar}</h2>
+          <p class="mt-4 text-gray-500">{section.desc}</p>
+        </div>
+        <div class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {section.cards.map((card) => (
+            <div class="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div class:list={["mb-4 flex h-12 w-12 items-center justify-center rounded-xl", section.color === "mint" ? "bg-mint/10 text-mint" : section.color === "warm" ? "bg-warm/10 text-yellow-700" : "bg-accent/10 text-accent"]}>
+                <div class="h-5 w-5" set:html={card.icon} />
+              </div>
+              <h3 class="font-bold text-charcoal">{card.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-gray-500">{card.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- CTA -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <h2 class="text-3xl font-black text-charcoal sm:text-4xl">See it in action</h2>
+      <p class="mt-4 text-gray-500">Start your 30-day free trial or book a personalised demo.</p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a href="#" class="rounded-lg bg-mint px-8 py-4 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Start Free Trial</a>
+        <a href="/contact/" class="rounded-lg border-2 border-gray-200 px-8 py-4 text-sm font-semibold text-charcoal transition-all duration-200 hover:border-mint hover:text-mint">Book a Demo</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

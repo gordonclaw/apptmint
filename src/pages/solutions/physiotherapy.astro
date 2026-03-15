@@ -1,0 +1,149 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Physiotherapy Software | Apptmint" description="Appointment scheduling, session packs, clinical notes and billing built for UK physiotherapy clinics. GDPR compliant.">
+
+  <!-- Header -->
+  <section class="bg-charcoal py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Physiotherapy</p>
+        <h1 class="mt-4 text-4xl font-black text-white sm:text-5xl">Built for physio clinics that want to stop firefighting admin</h1>
+        <p class="mt-6 text-lg leading-relaxed text-gray-400">Session packs, clinical notes, room booking, billing and GDPR compliance -- all in one platform.</p>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a href="#" class="rounded-lg bg-mint px-8 py-4 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Start Free Trial</a>
+          <a href="/contact/" class="rounded-lg border-2 border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all duration-200 hover:border-mint hover:text-mint">Book a Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain points -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-red-400">Sound Familiar?</p>
+        <h2 class="mt-4 text-3xl font-black text-charcoal sm:text-4xl">The problems physio clinics deal with every day</h2>
+      </div>
+      <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {[
+          { title: "Manual pack tracking", desc: "Counting remaining sessions in a spreadsheet or notebook. Losing track of which client has used what." },
+          { title: "Paper clinical notes", desc: "Handwritten session notes that are hard to search, easy to lose, and a GDPR liability." },
+          { title: "Room booking chaos", desc: "Double-booked treatment rooms, no clear view of which rooms are free, awkward shuffling between practitioners." },
+          { title: "Invoicing by hand", desc: "Creating invoices manually, chasing late payments, no clear picture of outstanding balances." },
+          { title: "No-shows without warning", desc: "Empty slots that could have been filled. No automatic reminders, no deposit protection." },
+          { title: "Scattered client records", desc: "Medical history in one place, appointment notes in another, consent forms in a filing cabinet." },
+        ].map((p) => (
+          <div class="rounded-2xl border border-red-100 bg-red-50/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <h3 class="font-bold text-charcoal">{p.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-500">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features for physio -->
+  <section class="bg-gray-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">How Apptmint Helps</p>
+        <h2 class="mt-4 text-3xl font-black text-charcoal sm:text-4xl">Everything your physio clinic needs</h2>
+      </div>
+      <div class="mt-14 space-y-16">
+        {[
+          {
+            title: "Session Packs",
+            desc: "Sell packs of 6, 10 or any number of sessions. Balances are tracked automatically. Clients and staff can see remaining sessions at a glance. Low-balance alerts are sent before the pack runs out.",
+            points: ["Custom pack sizes and pricing", "Automatic balance tracking", "Low-balance alerts to client and clinic", "Online top-up and renewal"],
+          },
+          {
+            title: "Clinical Notes",
+            desc: "Structured digital session notes attached to each appointment. Record assessments, treatment plans, exercise prescriptions and outcomes. Access-controlled so only authorised practitioners can view clinical records.",
+            points: ["Structured note templates", "Per-appointment clinical records", "Access controls per practitioner", "Searchable patient history", "GDPR-compliant storage and retention"],
+          },
+          {
+            title: "Room and Resource Allocation",
+            desc: "See which treatment rooms are available at a glance. Assign rooms per appointment, avoid double-bookings and track equipment allocation. Useful for clinics with multiple practitioners sharing space.",
+            points: ["Visual room availability", "Per-appointment room assignment", "Equipment and bed tracking", "Utilisation reporting"],
+          },
+          {
+            title: "Patient History",
+            desc: "Every client has a single profile showing their full appointment history, clinical notes, consent forms, invoices and communication log. No more searching across systems.",
+            points: ["Full appointment timeline", "Linked clinical notes", "Document storage (consent, referrals)", "Communication history"],
+          },
+          {
+            title: "GDPR Compliance",
+            desc: "ICO registered. Data encrypted at rest and in transit. Hosted in the UK/EU. Consent management built in. Data retention policies configurable per record type. Right-to-deletion workflows included.",
+            points: ["ICO registered", "UK/EU data residency", "Configurable retention policies", "Right-to-deletion workflows", "Digital consent forms"],
+          },
+          {
+            title: "Billing and Payments",
+            desc: "MTD-compliant invoicing with Stripe payments. Collect deposits at booking. Accept card, Apple Pay and Google Pay. Per-staff cash drawer management and close-of-day reports.",
+            points: ["MTD-compliant invoices", "Stripe payments integration", "Deposit collection at booking", "Cash drawer management"],
+          },
+        ].map((feature, i) => (
+          <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+            <div class:list={[i % 2 !== 0 && "lg:order-2"]}>
+              <h3 class="text-2xl font-black text-charcoal">{feature.title}</h3>
+              <p class="mt-4 leading-relaxed text-gray-500">{feature.desc}</p>
+            </div>
+            <div class:list={[i % 2 !== 0 && "lg:order-1"]}>
+              <div class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+                <ul class="space-y-3">
+                  {feature.points.map((point) => (
+                    <li class="flex items-start gap-3 text-sm text-gray-600">
+                      <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">FAQ</p>
+        <h2 class="mt-4 text-3xl font-black text-charcoal sm:text-4xl">Common questions from physio clinics</h2>
+      </div>
+      <div class="mx-auto mt-14 max-w-2xl">
+        {[
+          { q: "Can I migrate my existing patient records?", a: "Yes. We offer free data migration from spreadsheets, other booking systems, or exported records. We'll help you map and import your data during onboarding." },
+          { q: "How do session packs work with insurance patients?", a: "You can create insurance-specific packs or use single-session billing for insured patients. Invoices can be generated per session or per pack with the detail your insurers require." },
+          { q: "Can different practitioners have different access levels?", a: "Yes. Role-based access controls mean you can restrict clinical notes to specific practitioners, limit financial data visibility, and control who can modify appointments." },
+          { q: "Is it suitable for a multi-practitioner clinic?", a: "Absolutely. The Growth plan supports up to 5 practitioners and the Pro plan is unlimited. Each practitioner gets their own calendar, notes and client view." },
+          { q: "How does it handle GDPR for clinical data?", a: "Clinical data is encrypted, access-controlled, and stored in the UK/EU. You can configure retention periods, process deletion requests, and maintain audit trails. We're ICO registered." },
+          { q: "Can patients book online?", a: "Yes. You get a branded booking page and an embeddable widget for your website. Patients can see availability and book 24/7. You control which services and time slots are available online." },
+        ].map((faq) => (
+          <details class="group border-b border-gray-200">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 py-5 text-sm font-semibold text-charcoal transition-colors duration-200 hover:text-mint [&::-webkit-details-marker]:hidden">
+              <span>{faq.q}</span>
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="pb-5"><p class="text-sm leading-relaxed text-gray-500">{faq.a}</p></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gray-50 py-20">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <h2 class="text-3xl font-black text-charcoal sm:text-4xl">Ready to streamline your physio clinic?</h2>
+      <p class="mt-4 text-gray-500">Start your 30-day free trial or book a demo tailored to physiotherapy.</p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a href="#" class="rounded-lg bg-mint px-8 py-4 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Start Free Trial</a>
+        <a href="/contact/" class="rounded-lg border-2 border-gray-200 px-8 py-4 text-sm font-semibold text-charcoal transition-all duration-200 hover:border-mint hover:text-mint">Book a Demo</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

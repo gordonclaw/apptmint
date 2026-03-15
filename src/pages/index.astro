@@ -1,0 +1,361 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Apptmint | Everything Your Appointment Business Needs">
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white pt-20 pb-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-4xl font-black leading-tight text-charcoal sm:text-5xl lg:text-6xl">
+          Everything your appointment business needs.
+          <span class="text-mint">In one place.</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-gray-500">
+          Scheduling, billing, payments, CRM, reminders and AI -- all working
+          together. Built for UK appointment businesses.
+        </p>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a href="#" class="rounded-lg bg-mint px-8 py-4 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">
+            Start Free (30 days)
+          </a>
+          <a href="/contact/" class="rounded-lg border-2 border-gray-200 px-8 py-4 text-sm font-semibold text-charcoal transition-all duration-200 hover:border-mint hover:text-mint">
+            Book a Demo
+          </a>
+        </div>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400">
+          {["No credit card required", "UK-based support", "GDPR ready", "MTD/HMRC compliant"].map((t) => (
+            <span class="flex items-center gap-1.5">
+              <svg class="h-4 w-4 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Hero visual: mock calendar -->
+      <div class="relative mx-auto mt-16 max-w-4xl">
+        <div class="rounded-2xl border border-gray-200 bg-white p-1 shadow-2xl">
+          <div class="rounded-xl bg-gray-50 p-6">
+            <div class="flex items-center justify-between border-b border-gray-200 pb-4">
+              <h3 class="text-sm font-bold text-charcoal">Week of 16 March 2026</h3>
+              <div class="flex gap-2">
+                <span class="rounded-md bg-mint/10 px-3 py-1 text-xs font-medium text-mint-dark">Day</span>
+                <span class="rounded-md bg-mint px-3 py-1 text-xs font-medium text-white">Week</span>
+                <span class="rounded-md bg-mint/10 px-3 py-1 text-xs font-medium text-mint-dark">Month</span>
+              </div>
+            </div>
+            <div class="mt-4 grid grid-cols-5 gap-3">
+              {["Mon", "Tue", "Wed", "Thu", "Fri"].map((day, i) => (
+                <div class="space-y-2">
+                  <p class="text-center text-xs font-medium text-gray-400">{day}</p>
+                  {i === 0 && (<><div class="rounded-lg bg-mint/15 p-2"><p class="text-xs font-medium text-mint-dark">09:00 Sarah T.</p><p class="text-[10px] text-gray-400">Deep tissue</p></div><div class="rounded-lg bg-accent/10 p-2"><p class="text-xs font-medium text-accent">11:00 James R.</p><p class="text-[10px] text-gray-400">Assessment</p></div></>)}
+                  {i === 1 && (<><div class="rounded-lg bg-warm/10 p-2"><p class="text-xs font-medium text-yellow-700">10:00 Lisa M.</p><p class="text-[10px] text-gray-400">Follow-up</p></div><div class="rounded-lg bg-mint/15 p-2"><p class="text-xs font-medium text-mint-dark">14:00 David K.</p><p class="text-[10px] text-gray-400">Sports rehab</p></div><div class="rounded-lg bg-accent/10 p-2"><p class="text-xs font-medium text-accent">16:30 Emma W.</p><p class="text-[10px] text-gray-400">Initial consult</p></div></>)}
+                  {i === 2 && (<div class="rounded-lg bg-mint/15 p-2"><p class="text-xs font-medium text-mint-dark">09:30 Tom B.</p><p class="text-[10px] text-gray-400">Pack session 4/6</p></div>)}
+                  {i === 3 && (<><div class="rounded-lg bg-accent/10 p-2"><p class="text-xs font-medium text-accent">10:00 Anna P.</p><p class="text-[10px] text-gray-400">Therapy session</p></div><div class="rounded-lg bg-warm/10 p-2"><p class="text-xs font-medium text-yellow-700">13:00 Mark H.</p><p class="text-[10px] text-gray-400">Review</p></div></>)}
+                  {i === 4 && (<div class="rounded-lg bg-mint/15 p-2"><p class="text-xs font-medium text-mint-dark">11:00 Rachel S.</p><p class="text-[10px] text-gray-400">Massage 60min</p></div>)}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <!-- Floating client card -->
+        <div class="absolute -right-6 bottom-8 hidden w-56 rounded-xl border border-gray-100 bg-white p-4 shadow-xl lg:block">
+          <div class="flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-mint/15 text-sm font-bold text-mint-dark">ST</div>
+            <div><p class="text-sm font-semibold text-charcoal">Sarah Thompson</p><p class="text-xs text-gray-400">6 sessions remaining</p></div>
+          </div>
+        </div>
+        <!-- Floating payment card -->
+        <div class="absolute -left-6 top-1/2 hidden w-48 rounded-xl border border-gray-100 bg-white p-4 shadow-xl lg:block">
+          <p class="text-xs text-gray-400">Payment received</p>
+          <p class="mt-1 text-lg font-black text-charcoal">&pound;65.00</p>
+          <p class="mt-1 text-xs text-mint">Paid via Stripe</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem strip marquee -->
+  <section class="overflow-hidden border-y border-gray-100 bg-gray-50 py-4">
+    <div class="flex animate-marquee whitespace-nowrap">
+      {[...Array(2)].map(() => (
+        <>
+          {["Missed appointments costing you money", "Chasing payments manually", "Juggling WhatsApp, spreadsheets and paper", "Payroll calculated on a Friday night", "Clients booking outside office hours"].map((t) => (
+            <><span class="mx-8 text-sm font-medium text-gray-400">{t}</span><span class="text-gray-300">|</span></>
+          ))}
+        </>
+      ))}
+    </div>
+  </section>
+
+  <!-- Problems -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-red-400">The Problem</p>
+        <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Sound familiar?</h2>
+      </div>
+      <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {[
+          { icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>', title: "Too many tools", desc: "Excel, WhatsApp, a notes app and a payment link. Nothing talks to anything else." },
+          { icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>', title: "No-shows with no warning", desc: "No automatic reminders means empty slots and lost revenue." },
+          { icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>', title: "Invoicing chaos", desc: "Manual invoices, late payments, no clear picture of what you're owed." },
+          { icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>', title: "Bookings only when you're available", desc: "Every appointment needs someone to pick up the phone." },
+          { icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>', title: "Payroll done by hand", desc: "Commission calculations at month-end in a spreadsheet nobody trusts." },
+          { icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>', title: "No idea how the business is doing", desc: "No dashboard, no reports, just gut feel." },
+        ].map((p) => (
+          <div class="rounded-2xl border border-red-100 bg-red-50/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-red-100 text-red-500">
+              <div class="h-5 w-5" set:html={p.icon} />
+            </div>
+            <h3 class="font-bold text-charcoal">{p.title}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-gray-500">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features: four pillars -->
+  <section class="bg-gray-50 py-20" id="features">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Features</p>
+        <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Built for how appointment businesses actually work</h2>
+      </div>
+      <div class="mt-14 space-y-12">
+        {[
+          { pillar: "Scheduling", color: "mint", features: ["Smart calendar -- day, week, month views with drag and drop", "Online booking -- client-facing page, embeddable widget, 24/7", "WhatsApp-native booking -- clients book, confirm and reschedule via WhatsApp", "Auto-rebooking -- set recurring appointments (e.g. every 6 weeks)", "Waitlist -- auto-notify when a slot opens", "Automatic reminders -- WhatsApp and SMS, one-tap confirm", "Room and resource allocation", "Holiday and sick day management -- notify clients, offer rescheduling", "Staff substitution -- auto-suggest alternatives when a team member is off"] },
+          { pillar: "Clients & CRM", color: "accent", features: ["Client profiles -- full history, session notes, documents", "No-show tracking -- flag repeat offenders, track lost revenue", "Auto-segmentation -- active, lapsed, pack balance low, frequent no-shows", "Targeted messaging -- birthday offers, reactivation campaigns, pack renewals", "Unified inbox -- all client messages in one thread", "Health forms and consent management", "Gift vouchers -- sell and redeem online, track balances"] },
+          { pillar: "Billing & Payments", color: "warm", features: ["Stripe payments -- card, Apple Pay, Google Pay, Open Banking", "MTD-compliant invoicing -- auto-generated, correct VAT handling", "Packs and subscriptions -- session bundles, auto-track balances", "Per-staff cash drawers -- daily totals, close-of-day reports", "Deposit collection at booking to reduce no-shows", "Gift voucher sales via Stripe"] },
+          { pillar: "Operations", color: "accent", features: ["Payroll and commissions -- percentage or flat rate, export-ready", "Stock management -- consumables tracking, reorder alerts", "Business reports -- occupancy, revenue by service/staff, cancellation trends", "Clinical notes -- structured session notes, access controls per practitioner", "Multi-location support", "Chair / room rental marketplace -- list availability, match with freelancers", "Smart discovery -- suggest nearby alternatives when you're fully booked"] },
+        ].map((s) => (
+          <div class="rounded-2xl border border-gray-100 bg-white p-8">
+            <div class="grid grid-cols-1 items-start gap-6 lg:grid-cols-5">
+              <div class="lg:col-span-2">
+                <span class:list={["inline-block rounded-lg px-3 py-1 text-xs font-bold uppercase tracking-widest", s.color === "mint" ? "bg-mint/10 text-mint-dark" : s.color === "warm" ? "bg-warm/10 text-yellow-700" : "bg-accent/10 text-accent"]}>
+                  {s.pillar}
+                </span>
+              </div>
+              <div class="lg:col-span-3">
+                <ul class="space-y-3">
+                  {s.features.map((f) => (
+                    <li class="flex items-start gap-3 text-sm text-gray-600">
+                      <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Receptionist -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+        <div>
+          <span class="inline-block rounded-lg bg-mint/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-mint-dark">AI Receptionist</span>
+          <h2 class="mt-4 text-3xl font-black text-charcoal sm:text-4xl">Meet Mint -- your AI receptionist</h2>
+          <p class="mt-4 leading-relaxed text-gray-500">Handles bookings, confirmations, cancellations and FAQs over WhatsApp. 24/7. In plain English.</p>
+          <ul class="mt-6 space-y-3">
+            {["Confirms and reminds clients automatically", "Handles cancellations and rescheduling with your rules", "Answers questions about services and availability", "Escalates to a human when needed"].map((item) => (
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <!-- WhatsApp mock -->
+        <div class="mx-auto w-full max-w-sm">
+          <div class="rounded-2xl border border-gray-200 bg-[#e5ddd5] p-4 shadow-lg">
+            <div class="mb-3 flex items-center gap-3 rounded-xl bg-[#075e54] px-4 py-3">
+              <div class="flex h-8 w-8 items-center justify-center rounded-full bg-mint text-xs font-bold text-white">M</div>
+              <div><p class="text-sm font-semibold text-white">Mint</p><p class="text-[10px] text-green-200">online</p></div>
+            </div>
+            <div class="space-y-2">
+              <div class="ml-auto w-4/5 rounded-lg bg-[#dcf8c6] px-3 py-2"><p class="text-sm text-gray-800">Hi, can I book a massage for Thursday?</p><p class="text-right text-[10px] text-gray-400">14:22</p></div>
+              <div class="mr-auto w-4/5 rounded-lg bg-white px-3 py-2"><p class="text-sm text-gray-800">Hi! I've got availability at 10:00, 14:30 and 16:00 on Thursday. Which works best for you?</p><p class="text-right text-[10px] text-gray-400">14:22</p></div>
+              <div class="ml-auto w-4/5 rounded-lg bg-[#dcf8c6] px-3 py-2"><p class="text-sm text-gray-800">14:30 please</p><p class="text-right text-[10px] text-gray-400">14:23</p></div>
+              <div class="mr-auto w-4/5 rounded-lg bg-white px-3 py-2"><p class="text-sm text-gray-800">Done! You're booked in for Thursday at 14:30 for a 60-minute massage with Sarah. I'll send a reminder the day before.</p><p class="text-right text-[10px] text-gray-400">14:23</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verticals -->
+  <section class="bg-gray-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Solutions</p>
+        <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Built around your speciality</h2>
+      </div>
+      <div class="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          { title: "Physiotherapy", desc: "Packs, protocols, room allocation, clinical notes. No Excel.", href: "/solutions/physiotherapy/", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>' },
+          { title: "Psychology & Therapy", desc: "Private notes per therapist, consent forms, GDPR and data isolation.", href: "/solutions/psychology/", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>' },
+          { title: "Beauty & Hair", desc: "Staff commissions, product stock, chair rental model.", href: "#", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>' },
+          { title: "Personal Training", desc: "Session packs, outdoor/gym locations, client progress tracking.", href: "#", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>' },
+        ].map((v) => (
+          <a href={v.href} class="group flex flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-mint/10 text-mint transition-all duration-300 group-hover:bg-mint group-hover:text-white">
+              <div class="h-5 w-5" set:html={v.icon} />
+            </div>
+            <h3 class="font-bold text-charcoal">{v.title}</h3>
+            <p class="mt-1 flex-1 text-sm leading-relaxed text-gray-500">{v.desc}</p>
+            {v.href !== "#" ? (
+              <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-mint transition-all duration-200 group-hover:gap-2.5">Learn more <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+            ) : (
+              <span class="mt-4 text-xs font-medium text-gray-300">Coming soon</span>
+            )}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Integrations -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Integrations</p>
+        <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Connects to what you already use</h2>
+      </div>
+      <div class="mx-auto mt-14 grid max-w-3xl grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
+        {[
+          { name: "Stripe", desc: "Card, Apple Pay, Google Pay" },
+          { name: "HMRC / MTD", desc: "Compliant invoicing" },
+          { name: "GoHighLevel", desc: "CRM & marketing sync" },
+          { name: "WhatsApp", desc: "Mint AI receptionist" },
+          { name: "Webhooks", desc: "Connect anything else" },
+        ].map((int) => (
+          <div class="flex flex-col items-center rounded-xl border border-gray-100 bg-gray-50 p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-white text-sm font-bold text-charcoal shadow-sm">{int.name.charAt(0)}</div>
+            <p class="mt-3 text-sm font-semibold text-charcoal">{int.name}</p>
+            <p class="mt-1 text-xs text-gray-400">{int.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-gray-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Testimonials</p>
+        <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">What our customers say</h2>
+      </div>
+      <div class="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3">
+        {[
+          { quote: "We cut our admin time in half within the first month. The invoicing alone is worth it.", name: "Dr. Claire Hughes", role: "Physiotherapy Clinic, Bristol" },
+          { quote: "Clients love booking through WhatsApp. Mint handles 80% of our enquiries without us lifting a finger.", name: "James Carter", role: "Sports Therapy, Leeds" },
+          { quote: "Finally, one system that does everything. No more juggling five different apps.", name: "Priya Patel", role: "Psychology Practice, London" },
+        ].map((t) => (
+          <blockquote class="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
+            <div class="flex gap-1 text-warm">
+              {Array(5).fill(null).map(() => (<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>))}
+            </div>
+            <p class="mt-4 text-sm leading-relaxed text-gray-600 italic">"{t.quote}"</p>
+            <footer class="mt-4"><p class="text-sm font-semibold text-charcoal">{t.name}</p><p class="text-xs text-gray-400">{t.role}</p></footer>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="bg-white py-20" id="pricing">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Pricing</p>
+        <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Simple pricing. No surprises.</h2>
+        <p class="mx-auto mt-4 max-w-md text-gray-500">30-day free trial on all plans. No setup fee. Cancel any time.</p>
+      </div>
+      <div class="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
+        {[
+          { name: "Starter", price: "29", desc: "Solo practitioner. Core scheduling + payments.", features: ["Smart calendar", "Online booking page", "Stripe payments", "MTD invoicing", "Email reminders", "1 staff member"], highlight: false },
+          { name: "Growth", price: "59", desc: "Small team. Adds CRM, reminders, packs.", features: ["Everything in Starter", "Up to 5 staff", "Client CRM & profiles", "WhatsApp/SMS reminders", "Session packs & subscriptions", "Business reports"], highlight: true, badge: "Most Popular" },
+          { name: "Pro", price: "99", desc: "Multi-staff. Payroll, reports, Mint AI, API.", features: ["Everything in Growth", "Unlimited staff", "Mint AI receptionist", "Payroll & commissions", "Stock management", "API & webhook access", "Priority support"], highlight: false },
+        ].map((plan) => (
+          <div class:list={["relative flex flex-col rounded-2xl border-2 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl", plan.highlight ? "border-mint bg-mint/5 shadow-lg" : "border-gray-100 bg-white shadow-sm"]}>
+            {plan.badge && (<div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-mint px-4 py-1 text-xs font-bold uppercase text-white">{plan.badge}</div>)}
+            <h3 class="text-center text-lg font-bold text-charcoal">{plan.name}</h3>
+            <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;{plan.price}</span><span class="text-sm text-gray-400">/month</span></p>
+            <p class="mt-2 text-center text-sm text-gray-500">{plan.desc}</p>
+            <ul class="mt-6 flex-1 space-y-3">
+              {plan.features.map((f) => (
+                <li class="flex items-center gap-3 text-sm text-gray-600">
+                  <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a href="#" class:list={["mt-8 block rounded-lg py-3 text-center text-sm font-semibold transition-all duration-200", plan.highlight ? "bg-mint text-white hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25" : "border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-white"]}>Start Free Trial</a>
+          </div>
+        ))}
+      </div>
+      <p class="mt-8 text-center text-sm text-gray-400">Save 20% with annual billing. <a href="/pricing/" class="font-medium text-mint hover:text-mint-dark">See full pricing breakdown</a></p>
+
+      <!-- Competitor comparison -->
+      <div class="mx-auto mt-16 max-w-2xl rounded-2xl border border-gray-100 bg-gray-50 p-8">
+        <h3 class="text-center text-lg font-bold text-charcoal">How we compare</h3>
+        <p class="mt-2 text-center text-sm text-gray-500">A 4-person practice on our Growth plan:</p>
+        <p class="mt-1 text-center text-2xl font-black text-mint">&pound;59/month</p>
+        <div class="mt-6 space-y-3">
+          {[
+            { name: "Cliniko", price: "&pound;75/mo", note: "no WhatsApp, no AI" },
+            { name: "Fresha", price: "20% commission", note: "per transaction" },
+            { name: "Booksy", price: "&pound;40/mo + &pound;5/staff", note: "adds up fast" },
+            { name: "Nearcut", price: "&pound;10/staff/mo", note: "barber-only, limited features" },
+            { name: "Setmore", price: "&pound;39/mo", note: "no UK invoicing compliance" },
+          ].map((c) => (
+            <div class="flex items-center justify-between rounded-lg bg-white px-4 py-3 text-sm">
+              <span class="font-medium text-gray-500 line-through">{c.name}</span>
+              <span class="text-gray-400"><span set:html={c.price} /> <span class="text-xs">({c.note})</span></span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-gray-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">FAQ</p>
+        <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Frequently asked questions</h2>
+      </div>
+      <div class="mx-auto mt-14 max-w-2xl">
+        {[
+          { q: "How long does setup take?", a: "Most businesses are up and running in under an hour. We'll help you import your existing data and configure your calendar." },
+          { q: "Do you migrate my existing data?", a: "Yes. We'll import your client list, appointment history, and any other data from your current system at no extra cost." },
+          { q: "Is invoicing really HMRC/MTD compliant?", a: "Yes. Invoices are auto-generated with correct VAT handling, sequential numbering, and digital record-keeping that meets Making Tax Digital requirements." },
+          { q: "How do payments work?", a: "We integrate directly with Stripe. Your clients can pay by card, Apple Pay, Google Pay, or Open Banking. Funds go straight to your account." },
+          { q: "Can clients book online?", a: "Yes. You get a branded booking page and an embeddable widget for your website. Clients can book 24/7 without calling." },
+          { q: "Does it work for multiple locations?", a: "Yes. The Pro plan supports multiple locations with separate calendars, staff, and reporting per site." },
+          { q: "How do you reduce no-shows?", a: "Automatic WhatsApp and SMS reminders with one-tap confirmation. You can also collect deposits at booking to protect your time." },
+          { q: "How is my data kept secure?", a: "All data is encrypted at rest and in transit. We're ICO registered, GDPR compliant, and hosted on UK/EU infrastructure. See our security page for details." },
+          { q: "Can I integrate with my existing tools?", a: "Yes. We integrate with Stripe, GoHighLevel, WhatsApp Business API, and offer webhooks and a REST API for custom integrations." },
+        ].map((faq) => (
+          <details class="group border-b border-gray-200">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 py-5 text-sm font-semibold text-charcoal transition-colors duration-200 hover:text-mint [&::-webkit-details-marker]:hidden">
+              <span>{faq.q}</span>
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="pb-5"><p class="text-sm leading-relaxed text-gray-500">{faq.a}</p></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

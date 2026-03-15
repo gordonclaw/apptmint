@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Page Not Found | Apptmint" description="The page you are looking for does not exist.">
+
+  <section class="bg-charcoal py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">404</p>
+        <h1 class="mt-4 text-6xl font-black text-white sm:text-8xl">404</h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-24">
+    <div class="mx-auto max-w-xl px-4 text-center sm:px-6">
+      <h2 class="text-2xl font-black text-charcoal sm:text-3xl">Page not found</h2>
+      <p class="mt-4 leading-relaxed text-gray-500">The page you are looking for does not exist or has been moved. Check the URL or head back to the homepage.</p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href="/" class="rounded-lg bg-mint px-8 py-4 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Back to Homepage</a>
+        <a href="/contact/" class="rounded-lg border-2 border-gray-200 px-8 py-4 text-sm font-semibold text-charcoal transition-all duration-200 hover:border-mint hover:text-mint">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

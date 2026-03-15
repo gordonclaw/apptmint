@@ -1,0 +1,246 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const plans = [
+  {
+    name: "Starter",
+    monthlyPrice: 29,
+    annualPrice: 23,
+    desc: "Solo practitioner. Core scheduling and payments.",
+    features: [
+      "Smart calendar (day, week, month)",
+      "Online booking page",
+      "Stripe payments",
+      "MTD-compliant invoicing",
+      "Email reminders",
+      "1 staff member",
+      "Client profiles",
+      "Basic reports",
+    ],
+    highlight: false,
+  },
+  {
+    name: "Growth",
+    monthlyPrice: 59,
+    annualPrice: 47,
+    desc: "Small team. CRM, reminders and session packs.",
+    features: [
+      "Everything in Starter",
+      "Up to 5 staff members",
+      "Full client CRM and profiles",
+      "WhatsApp and SMS reminders",
+      "Session packs and subscriptions",
+      "Waitlist management",
+      "Targeted messaging",
+      "Business reports and dashboards",
+      "Health forms and consent",
+      "Deposit collection",
+    ],
+    highlight: true,
+    badge: "Most Popular",
+  },
+  {
+    name: "Pro",
+    monthlyPrice: 99,
+    annualPrice: 79,
+    desc: "Multi-staff. Payroll, AI receptionist and API access.",
+    features: [
+      "Everything in Growth",
+      "Unlimited staff members",
+      "Mint AI receptionist (WhatsApp)",
+      "Payroll and commissions",
+      "Stock management",
+      "Clinical notes with access controls",
+      "Multi-location support",
+      "API and webhook access",
+      "Priority support",
+      "Dedicated onboarding",
+    ],
+    highlight: false,
+  },
+];
+
+const comparisonFeatures = [
+  { feature: "Staff members", starter: "1", growth: "Up to 5", pro: "Unlimited" },
+  { feature: "Smart calendar", starter: true, growth: true, pro: true },
+  { feature: "Online booking page", starter: true, growth: true, pro: true },
+  { feature: "Embeddable booking widget", starter: false, growth: true, pro: true },
+  { feature: "Stripe payments", starter: true, growth: true, pro: true },
+  { feature: "MTD-compliant invoicing", starter: true, growth: true, pro: true },
+  { feature: "Email reminders", starter: true, growth: true, pro: true },
+  { feature: "WhatsApp/SMS reminders", starter: false, growth: true, pro: true },
+  { feature: "Client CRM and profiles", starter: "Basic", growth: "Full", pro: "Full" },
+  { feature: "Session packs", starter: false, growth: true, pro: true },
+  { feature: "Subscriptions", starter: false, growth: true, pro: true },
+  { feature: "Waitlist management", starter: false, growth: true, pro: true },
+  { feature: "Targeted messaging", starter: false, growth: true, pro: true },
+  { feature: "Health forms and consent", starter: false, growth: true, pro: true },
+  { feature: "Deposit collection", starter: false, growth: true, pro: true },
+  { feature: "Business reports", starter: "Basic", growth: "Full", pro: "Full" },
+  { feature: "Mint AI receptionist", starter: false, growth: false, pro: true },
+  { feature: "Payroll and commissions", starter: false, growth: false, pro: true },
+  { feature: "Stock management", starter: false, growth: false, pro: true },
+  { feature: "Clinical notes", starter: false, growth: false, pro: true },
+  { feature: "Multi-location", starter: false, growth: false, pro: true },
+  { feature: "API and webhooks", starter: false, growth: false, pro: true },
+  { feature: "Priority support", starter: false, growth: false, pro: true },
+];
+---
+
+<BaseLayout title="Pricing | Apptmint" description="Simple, transparent pricing for UK appointment businesses. Plans from 29 per month. 30-day free trial on all plans.">
+
+  <!-- Header -->
+  <section class="bg-charcoal py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Pricing</p>
+        <h1 class="mt-4 text-4xl font-black text-white sm:text-5xl">Simple pricing. No surprises.</h1>
+        <p class="mt-6 text-lg leading-relaxed text-gray-400">30-day free trial on all plans. No setup fee. No credit card required. Cancel any time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Billing toggle + cards -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Billing toggle -->
+      <div class="mb-14 flex items-center justify-center gap-4">
+        <span class="text-sm font-medium text-gray-500" id="label-monthly">Monthly</span>
+        <button id="billing-toggle" class="relative h-7 w-14 rounded-full bg-gray-200 transition-colors duration-200" aria-label="Toggle annual billing">
+          <span id="toggle-dot" class="absolute top-0.5 left-0.5 h-6 w-6 rounded-full bg-white shadow-sm transition-transform duration-200"></span>
+        </button>
+        <span class="text-sm font-medium text-gray-500" id="label-annual">Annual <span class="ml-1 rounded-md bg-mint/10 px-2 py-0.5 text-xs font-bold text-mint-dark">Save 20%</span></span>
+      </div>
+
+      <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
+        {plans.map((plan) => (
+          <div class:list={["relative flex flex-col rounded-2xl border-2 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl", plan.highlight ? "border-mint bg-mint/5 shadow-lg" : "border-gray-100 bg-white shadow-sm"]}>
+            {plan.badge && (<div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-mint px-4 py-1 text-xs font-bold uppercase text-white">{plan.badge}</div>)}
+            <h3 class="text-center text-lg font-bold text-charcoal">{plan.name}</h3>
+            <p class="mt-4 text-center">
+              <span class="text-4xl font-black text-charcoal price-display" data-monthly={plan.monthlyPrice} data-annual={plan.annualPrice}>&pound;{plan.monthlyPrice}</span>
+              <span class="text-sm text-gray-400">/month</span>
+            </p>
+            <p class="mt-2 text-center text-sm text-gray-500">{plan.desc}</p>
+            <ul class="mt-6 flex-1 space-y-3">
+              {plan.features.map((f) => (
+                <li class="flex items-center gap-3 text-sm text-gray-600">
+                  <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a href="#" class:list={["mt-8 block rounded-lg py-3 text-center text-sm font-semibold transition-all duration-200", plan.highlight ? "bg-mint text-white hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25" : "border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-white"]}>Start Free Trial</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature comparison table -->
+  <section class="bg-gray-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Compare Plans</p>
+        <h2 class="mt-4 text-3xl font-black text-charcoal sm:text-4xl">Full feature breakdown</h2>
+      </div>
+
+      <div class="mx-auto mt-14 max-w-4xl overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="border-b-2 border-gray-200">
+              <th class="pb-4 pr-4 font-semibold text-charcoal">Feature</th>
+              <th class="pb-4 px-4 text-center font-semibold text-charcoal">Starter</th>
+              <th class="pb-4 px-4 text-center font-semibold text-mint-dark">Growth</th>
+              <th class="pb-4 pl-4 text-center font-semibold text-charcoal">Pro</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparisonFeatures.map((row) => (
+              <tr class="border-b border-gray-200">
+                <td class="py-3 pr-4 text-gray-600">{row.feature}</td>
+                {[row.starter, row.growth, row.pro].map((val) => (
+                  <td class="py-3 px-4 text-center">
+                    {val === true ? (
+                      <svg class="mx-auto h-5 w-5 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    ) : val === false ? (
+                      <span class="text-gray-300">--</span>
+                    ) : (
+                      <span class="text-gray-600">{val}</span>
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Questions</p>
+        <h2 class="mt-4 text-3xl font-black text-charcoal sm:text-4xl">Pricing FAQ</h2>
+      </div>
+      <div class="mx-auto mt-14 max-w-2xl">
+        {[
+          { q: "Is there really a 30-day free trial?", a: "Yes. Full access to your chosen plan for 30 days. No credit card required to start. If you don't continue, your data is securely deleted." },
+          { q: "Are there any setup fees?", a: "No. All plans include free onboarding. The Pro plan includes a dedicated onboarding session with our team." },
+          { q: "What happens if I need more staff than my plan allows?", a: "You can upgrade your plan at any time. You'll only pay the difference for the remainder of your billing period." },
+          { q: "How does annual billing work?", a: "Pay for 12 months upfront and save 20% compared to monthly billing. You can switch between monthly and annual at any renewal date." },
+          { q: "Can I cancel at any time?", a: "Yes. No lock-in contracts. Cancel at any time and your plan will remain active until the end of your current billing period." },
+          { q: "Do you charge per appointment or transaction?", a: "No. All plans include unlimited appointments and transactions. The only variable is the number of staff members." },
+        ].map((faq) => (
+          <details class="group border-b border-gray-200">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 py-5 text-sm font-semibold text-charcoal transition-colors duration-200 hover:text-mint [&::-webkit-details-marker]:hidden">
+              <span>{faq.q}</span>
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-400 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none"><path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="pb-5"><p class="text-sm leading-relaxed text-gray-500">{faq.a}</p></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const toggle = document.getElementById("billing-toggle") as HTMLButtonElement;
+  const dot = document.getElementById("toggle-dot") as HTMLElement;
+  const labelMonthly = document.getElementById("label-monthly") as HTMLElement;
+  const labelAnnual = document.getElementById("label-annual") as HTMLElement;
+  const prices = document.querySelectorAll(".price-display");
+
+  let isAnnual = false;
+
+  toggle?.addEventListener("click", () => {
+    isAnnual = !isAnnual;
+
+    if (isAnnual) {
+      dot.style.transform = "translateX(1.75rem)";
+      toggle.classList.remove("bg-gray-200");
+      toggle.classList.add("bg-mint");
+      labelAnnual.classList.add("text-charcoal", "font-semibold");
+      labelAnnual.classList.remove("text-gray-500");
+      labelMonthly.classList.remove("text-charcoal", "font-semibold");
+      labelMonthly.classList.add("text-gray-500");
+    } else {
+      dot.style.transform = "translateX(0)";
+      toggle.classList.add("bg-gray-200");
+      toggle.classList.remove("bg-mint");
+      labelMonthly.classList.add("text-charcoal", "font-semibold");
+      labelMonthly.classList.remove("text-gray-500");
+      labelAnnual.classList.remove("text-charcoal", "font-semibold");
+      labelAnnual.classList.add("text-gray-500");
+    }
+
+    prices.forEach((el) => {
+      const monthly = el.getAttribute("data-monthly");
+      const annual = el.getAttribute("data-annual");
+      el.innerHTML = `&pound;${isAnnual ? annual : monthly}`;
+    });
+  });
+</script>
