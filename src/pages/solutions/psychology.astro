@@ -116,7 +116,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       </div>
       <div class="mx-auto mt-14 max-w-2xl">
         {[
-          { q: "How does data isolation actually work?", a: "Each therapist's data is segregated at the database level using row-level security. A therapist can only query records they created or are explicitly shared with them. This is not a UI-level restriction -- it's enforced by the database itself." },
+          { q: "How does data isolation actually work?", a: "Each therapist's data is segregated at the database level using row-level security. A therapist can only query records they created or are explicitly shared with them. This is not a UI-level restriction. It is enforced by the database itself." },
           { q: "Can a practice manager see all client data?", a: "Practice managers see aggregate reporting (revenue, utilisation, appointment counts) but do not have access to clinical notes or session content. This separation is configurable to match your practice's governance model." },
           { q: "Is Apptmint suitable for processing special category data?", a: "Yes. We have designed the platform with the requirements of UK GDPR Article 9 in mind. Encryption, access controls, audit logging and retention policies are all built in. We recommend reviewing our Data Processing Agreement with your data protection officer." },
           { q: "Can clients book their own sessions?", a: "Yes. You control which time slots are available for self-booking. Clients can book, reschedule and cancel within the rules you set. New client enquiries can require a manual approval step before the first session." },

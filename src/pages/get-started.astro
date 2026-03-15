@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LeadQuestionnaire from "../components/LeadQuestionnaire";
+---
+
+<BaseLayout
+  title="Get Started | Free Digital Audit for Barbers & Hairdressers | Apptmint"
+  description="Answer a few quick questions about your business and get a free digital score with clear recommendations. Takes 2 minutes."
+>
+  <section class="bg-charcoal py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <span class="inline-block rounded-lg bg-mint/20 px-3 py-1 text-xs font-bold uppercase tracking-widest text-mint-light">Free Audit</span>
+        <h1 class="mt-4 text-4xl font-black text-white sm:text-5xl">How's your digital presence?</h1>
+        <p class="mx-auto mt-4 max-w-lg text-lg leading-relaxed text-gray-300">
+          Answer a few quick questions and we'll score your online presence, identify
+          gaps, and give you clear recommendations. Takes about 2 minutes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <LeadQuestionnaire client:load />
+
+      <!-- Netlify hidden form for detection -->
+      <form name="lead-questionnaire" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input name="business_type" />
+        <input name="locations" />
+        <input name="staff" />
+        <input name="years_in_business" />
+        <input name="has_website" />
+        <input name="website_url" />
+        <input name="instagram" />
+        <input name="facebook" />
+        <input name="google_maps" />
+        <input name="name" />
+        <input name="email" />
+        <input name="phone" />
+        <input name="business_name" />
+        <input name="score_total" />
+        <input name="score_digital" />
+        <input name="score_business" />
+        <input name="score_seo_opportunity" />
+        <input name="effort_level" />
+      </form>
+    </div>
+  </section>
+</BaseLayout>
