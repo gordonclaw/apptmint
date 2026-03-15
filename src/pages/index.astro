@@ -33,159 +33,41 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
       </div>
 
-      <!-- Hero visual: 7-day multi-shop availability calendar -->
-      <div class="relative mx-auto mt-16 max-w-5xl">
+      <!-- Hero visual: mock calendar -->
+      <div class="relative mx-auto mt-16 max-w-4xl">
         <div class="rounded-2xl border border-gray-200 bg-white p-1 shadow-2xl">
-          <div class="rounded-xl bg-gray-50 p-4 sm:p-6">
-            <!-- Calendar header -->
+          <div class="rounded-xl bg-gray-50 p-6">
             <div class="flex items-center justify-between border-b border-gray-200 pb-4">
-              <div class="flex items-center gap-3">
-                <button class="rounded-md p-1 text-gray-400 hover:bg-gray-100">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-                </button>
-                <h3 class="text-sm font-bold text-charcoal">16 -- 22 March 2026</h3>
-                <button class="rounded-md p-1 text-gray-400 hover:bg-gray-100">
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                </button>
-              </div>
-              <div class="flex items-center gap-2">
+              <h3 class="text-sm font-bold text-charcoal">Week of 16 March 2026</h3>
+              <div class="flex gap-2">
+                <span class="rounded-md bg-mint/10 px-3 py-1 text-xs font-medium text-mint-dark">Day</span>
                 <span class="rounded-md bg-mint px-3 py-1 text-xs font-medium text-white">Week</span>
-                <span class="hidden rounded-md bg-gray-100 px-3 py-1 text-xs font-medium text-gray-500 sm:inline">Today</span>
+                <span class="rounded-md bg-mint/10 px-3 py-1 text-xs font-medium text-mint-dark">Month</span>
               </div>
             </div>
-
-            <!-- Calendar grid -->
-            <div class="mt-4 overflow-x-auto">
-              <div class="min-w-[700px]">
-                <!-- Day headers -->
-                <div class="grid grid-cols-[140px_repeat(7,1fr)] gap-px">
-                  <div class="p-2"></div>
-                  {[
-                    { day: "Mon", date: "16" },
-                    { day: "Tue", date: "17" },
-                    { day: "Wed", date: "18" },
-                    { day: "Thu", date: "19" },
-                    { day: "Fri", date: "20" },
-                    { day: "Sat", date: "21" },
-                    { day: "Sun", date: "22" },
-                  ].map((d) => (
-                    <div class="p-2 text-center">
-                      <p class="text-[10px] font-medium uppercase text-gray-400">{d.day}</p>
-                      <p class="text-sm font-bold text-charcoal">{d.date}</p>
-                    </div>
-                  ))}
+            <div class="mt-4 grid grid-cols-5 gap-3">
+              {["Mon", "Tue", "Wed", "Thu", "Fri"].map((day, i) => (
+                <div class="space-y-2">
+                  <p class="text-center text-xs font-medium text-gray-400">{day}</p>
+                  {i === 0 && (<><div class="rounded-lg bg-mint/15 p-2"><p class="text-xs font-medium text-mint-dark">09:00 Sarah T.</p><p class="text-[10px] text-gray-400">Deep tissue</p></div><div class="rounded-lg bg-accent/10 p-2"><p class="text-xs font-medium text-accent">11:00 James R.</p><p class="text-[10px] text-gray-400">Assessment</p></div></>)}
+                  {i === 1 && (<><div class="rounded-lg bg-warm/10 p-2"><p class="text-xs font-medium text-yellow-700">10:00 Lisa M.</p><p class="text-[10px] text-gray-400">Follow-up</p></div><div class="rounded-lg bg-mint/15 p-2"><p class="text-xs font-medium text-mint-dark">14:00 David K.</p><p class="text-[10px] text-gray-400">Sports rehab</p></div><div class="rounded-lg bg-accent/10 p-2"><p class="text-xs font-medium text-accent">16:30 Emma W.</p><p class="text-[10px] text-gray-400">Initial consult</p></div></>)}
+                  {i === 2 && (<div class="rounded-lg bg-mint/15 p-2"><p class="text-xs font-medium text-mint-dark">09:30 Tom B.</p><p class="text-[10px] text-gray-400">Pack session 4/6</p></div>)}
+                  {i === 3 && (<><div class="rounded-lg bg-accent/10 p-2"><p class="text-xs font-medium text-accent">10:00 Anna P.</p><p class="text-[10px] text-gray-400">Therapy session</p></div><div class="rounded-lg bg-warm/10 p-2"><p class="text-xs font-medium text-yellow-700">13:00 Mark H.</p><p class="text-[10px] text-gray-400">Review</p></div></>)}
+                  {i === 4 && (<div class="rounded-lg bg-mint/15 p-2"><p class="text-xs font-medium text-mint-dark">11:00 Rachel S.</p><p class="text-[10px] text-gray-400">Massage 60min</p></div>)}
                 </div>
-
-                <!-- Shop rows -->
-                {[
-                  {
-                    name: "Restore Physio",
-                    color: "mint",
-                    slots: [
-                      [{ t: "09:00", n: "Sarah T.", s: "booked" }, { t: "11:00", n: "James R.", s: "booked" }, { t: "14:00", s: "available" }],
-                      [{ t: "09:00", n: "Lisa M.", s: "booked" }, { t: "10:30", s: "available" }, { t: "14:00", n: "David K.", s: "booked" }],
-                      [{ t: "09:00", s: "available" }, { t: "11:00", s: "available" }, { t: "15:00", n: "Tom B.", s: "booked" }],
-                      [{ t: "10:00", n: "Anna P.", s: "booked" }, { t: "13:00", s: "available" }],
-                      [{ t: "09:00", n: "Rachel S.", s: "booked" }, { t: "11:30", s: "available" }, { t: "14:00", n: "Mark H.", s: "booked" }],
-                      [{ t: "10:00", s: "available" }],
-                      [],
-                    ],
-                  },
-                  {
-                    name: "Clear Mind Therapy",
-                    color: "accent",
-                    slots: [
-                      [{ t: "10:00", n: "Client A.", s: "booked" }, { t: "14:00", s: "available" }],
-                      [{ t: "09:00", s: "available" }, { t: "11:00", n: "Client B.", s: "booked" }, { t: "15:00", n: "Client C.", s: "booked" }],
-                      [{ t: "10:00", n: "Client D.", s: "booked" }],
-                      [{ t: "09:00", s: "available" }, { t: "11:00", s: "available" }, { t: "14:00", n: "Client E.", s: "booked" }],
-                      [{ t: "10:00", n: "Client F.", s: "booked" }, { t: "13:00", s: "available" }],
-                      [],
-                      [],
-                    ],
-                  },
-                  {
-                    name: "Blade & Fade",
-                    color: "warm",
-                    slots: [
-                      [{ t: "09:00", n: "Dan R.", s: "booked" }, { t: "09:30", n: "Mike P.", s: "booked" }, { t: "10:00", s: "available" }, { t: "10:30", n: "Chris L.", s: "booked" }],
-                      [{ t: "09:00", s: "available" }, { t: "09:30", s: "available" }, { t: "10:00", n: "Sam W.", s: "booked" }, { t: "10:30", n: "Jake T.", s: "booked" }],
-                      [{ t: "09:00", n: "Ali H.", s: "booked" }, { t: "09:30", s: "available" }, { t: "10:00", s: "available" }, { t: "10:30", n: "Ben M.", s: "booked" }],
-                      [{ t: "09:00", n: "Ryan K.", s: "booked" }, { t: "09:30", n: "Nick J.", s: "booked" }, { t: "10:00", n: "Leo F.", s: "booked" }, { t: "10:30", s: "available" }],
-                      [{ t: "09:00", s: "available" }, { t: "09:30", n: "Ed B.", s: "booked" }, { t: "10:00", n: "Paul D.", s: "booked" }, { t: "10:30", s: "available" }],
-                      [{ t: "09:00", n: "Tom S.", s: "booked" }, { t: "09:30", s: "available" }, { t: "10:00", n: "Liam R.", s: "booked" }],
-                      [],
-                    ],
-                  },
-                  {
-                    name: "FitPro PT",
-                    color: "mint",
-                    slots: [
-                      [{ t: "06:00", n: "Emma W.", s: "booked" }, { t: "07:00", s: "available" }, { t: "18:00", n: "Josh P.", s: "booked" }],
-                      [{ t: "06:00", s: "available" }, { t: "07:00", n: "Kate M.", s: "booked" }, { t: "18:00", s: "available" }],
-                      [{ t: "06:00", n: "Rob N.", s: "booked" }, { t: "07:00", n: "Zoe C.", s: "booked" }, { t: "18:00", s: "available" }],
-                      [{ t: "06:00", s: "available" }, { t: "07:00", s: "available" }, { t: "18:00", n: "Amy L.", s: "booked" }],
-                      [{ t: "06:00", n: "Max D.", s: "booked" }, { t: "07:00", s: "available" }],
-                      [{ t: "08:00", s: "available" }, { t: "09:00", n: "Helen T.", s: "booked" }, { t: "10:00", s: "available" }],
-                      [],
-                    ],
-                  },
-                ].map((shop) => (
-                  <div class="grid grid-cols-[140px_repeat(7,1fr)] gap-px border-t border-gray-100">
-                    <!-- Shop name -->
-                    <div class="flex items-start gap-2 p-2 pt-3">
-                      <div class:list={[
-                        "flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg text-[10px] font-bold text-white",
-                        shop.color === "mint" ? "bg-mint" : shop.color === "accent" ? "bg-accent" : "bg-warm",
-                      ]}>
-                        {shop.name.split(" ").map((w) => w[0]).join("").slice(0, 2)}
-                      </div>
-                      <div>
-                        <p class="text-xs font-semibold text-charcoal leading-tight">{shop.name}</p>
-                      </div>
-                    </div>
-                    <!-- Day cells -->
-                    {shop.slots.map((daySlots) => (
-                      <div class="flex flex-col gap-0.5 p-1">
-                        {daySlots.length === 0 && (
-                          <div class="flex h-full items-center justify-center">
-                            <span class="text-[9px] text-gray-300">Closed</span>
-                          </div>
-                        )}
-                        {daySlots.map((slot) => (
-                          <div class:list={[
-                            "rounded px-1.5 py-0.5",
-                            slot.s === "available"
-                              ? "border border-dashed border-mint/40 bg-mint/5"
-                              : shop.color === "mint" ? "bg-mint/12" : shop.color === "accent" ? "bg-accent/10" : "bg-warm/10",
-                          ]}>
-                            <p class:list={[
-                              "text-[10px] font-medium leading-tight",
-                              slot.s === "available"
-                                ? "text-mint-dark"
-                                : shop.color === "mint" ? "text-mint-dark" : shop.color === "accent" ? "text-accent" : "text-yellow-700",
-                            ]}>
-                              {slot.t} {slot.s === "available" ? "Available" : slot.n}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
+              ))}
             </div>
           </div>
         </div>
         <!-- Floating client card -->
-        <div class="absolute -right-6 bottom-12 hidden w-56 rounded-xl border border-gray-100 bg-white p-4 shadow-xl lg:block">
+        <div class="absolute -right-6 bottom-8 hidden w-56 rounded-xl border border-gray-100 bg-white p-4 shadow-xl lg:block">
           <div class="flex items-center gap-3">
             <div class="flex h-10 w-10 items-center justify-center rounded-full bg-mint/15 text-sm font-bold text-mint-dark">ST</div>
             <div><p class="text-sm font-semibold text-charcoal">Sarah Thompson</p><p class="text-xs text-gray-400">6 sessions remaining</p></div>
           </div>
         </div>
         <!-- Floating payment card -->
-        <div class="absolute -left-6 top-1/3 hidden w-48 rounded-xl border border-gray-100 bg-white p-4 shadow-xl lg:block">
+        <div class="absolute -left-6 top-1/2 hidden w-48 rounded-xl border border-gray-100 bg-white p-4 shadow-xl lg:block">
           <p class="text-xs text-gray-400">Payment received</p>
           <p class="mt-1 text-lg font-black text-charcoal">&pound;65.00</p>
           <p class="mt-1 text-xs text-mint">Paid via Stripe</p>
