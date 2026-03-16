@@ -155,34 +155,62 @@ export default function LeadQuestionnaire() {
     const result = calculateScore(data);
     setScore(result);
 
-    const payload: Record<string, string> = {
-      "form-name": "lead-questionnaire",
-      business_type: data.business_type,
-      locations: String(data.locations),
-      staff: String(data.staff),
-      years_in_business: data.years_in_business,
-      has_website: data.has_website,
-      website_url: data.website_url,
-      instagram: data.instagram,
-      facebook: data.facebook,
-      google_maps: data.google_maps,
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      business_name: data.business_name,
-      score_total: String(result.total),
-      score_digital: String(result.digital_presence),
-      score_business: String(result.business_size),
-      score_seo_opportunity: String(result.seo_opportunity),
-      effort_level: result.effort_level,
-    };
-
     try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(payload).toString(),
-      });
+      const { createClient } = await import("@supabase/supabase-js");
+      const url = (import.meta as any).env?.PUBLIC_SUPABASE_URL;
+      const key = (import.meta as any).env?.PUBLIC_SUPABASE_ANON_KEY;
+
+      if (url && key) {
+        const supabase = createClient(url, key);
+        await supabase.from("leads").insert({
+          business_type: data.business_type,
+          business_name: data.business_name,
+          locations: data.locations,
+          staff: data.staff,
+          years_in_business: data.years_in_business,
+          has_website: data.has_website === "yes",
+          website_url: data.website_url || null,
+          instagram: data.instagram || null,
+          facebook: data.facebook || null,
+          google_maps: data.google_maps || null,
+          name: data.name,
+          email: data.email,
+          phone: data.phone || null,
+          score_total: result.total,
+          score_digital: result.digital_presence,
+          score_business: result.business_size,
+          score_seo_opportunity: result.seo_opportunity,
+          effort_level: result.effort_level,
+        });
+      } else {
+        // Fallback to Netlify Forms
+        const payload: Record<string, string> = {
+          "form-name": "lead-questionnaire",
+          business_type: data.business_type,
+          business_name: data.business_name,
+          locations: String(data.locations),
+          staff: String(data.staff),
+          years_in_business: data.years_in_business,
+          has_website: data.has_website,
+          website_url: data.website_url,
+          instagram: data.instagram,
+          facebook: data.facebook,
+          google_maps: data.google_maps,
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          score_total: String(result.total),
+          score_digital: String(result.digital_presence),
+          score_business: String(result.business_size),
+          score_seo_opportunity: String(result.seo_opportunity),
+          effort_level: result.effort_level,
+        };
+        await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(payload).toString(),
+        });
+      }
     } catch (err) {
       console.error("Form submission failed:", err);
     }
