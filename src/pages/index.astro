@@ -148,6 +148,68 @@ const schema = [
     </div>
   </section>
 
+  <!-- Pricing: front and centre -->
+  <section class="bg-white py-20" id="pricing">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Pricing</p>
+        <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Simple Pricing. No Surprises.</h2>
+        <p class="mx-auto mt-4 max-w-lg text-gray-500">No commission. No per-booking fees. No contracts. Cancel anytime.</p>
+      </div>
+      <div class="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
+        <!-- Solo -->
+        <div class="relative flex flex-col rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+          <h3 class="text-center text-lg font-bold text-charcoal">Solo</h3>
+          <p class="mt-1 text-center text-sm text-gray-500">For individual barbers & hairdressers</p>
+          <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;9</span><span class="text-sm text-gray-400"> /month</span></p>
+          <ul class="mt-6 flex-1 space-y-3">
+            {["1 staff member", "Unlimited bookings", "WhatsApp notifications", "Online booking page", "Auto-rebooking", "Gift vouchers"].map((f) => (
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="/get-started/" class="mt-8 block rounded-lg border-2 border-charcoal py-3 text-center text-sm font-semibold text-charcoal transition-all duration-200 hover:bg-charcoal hover:text-white">Get Started</a>
+        </div>
+
+        <!-- Shop -->
+        <div class="relative flex flex-col rounded-2xl border-2 border-mint bg-mint/5 p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-mint px-4 py-1 text-xs font-bold uppercase text-white">Most Popular</div>
+          <h3 class="text-center text-lg font-bold text-charcoal">Shop</h3>
+          <p class="mt-1 text-center text-sm text-gray-500">For salons & barbershops with a team</p>
+          <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;29</span><span class="text-sm text-gray-400"> /month</span></p>
+          <ul class="mt-6 flex-1 space-y-3">
+            {["Unlimited staff", "Unlimited bookings", "Everything in Solo", "Chair rental listing", "Staff substitution", "Discovery & aggregation", "Holiday & sick day management"].map((f) => (
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="/get-started/" class="mt-8 block rounded-lg bg-mint py-3 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Get Started</a>
+        </div>
+
+        <!-- Website -->
+        <div class="relative flex flex-col rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+          <h3 class="text-center text-lg font-bold text-charcoal">Website</h3>
+          <p class="mt-1 text-center text-sm text-gray-500">Custom website for your shop</p>
+          <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;150</span><span class="text-sm text-gray-400"> one-off</span></p>
+          <p class="mt-1 text-center text-xs text-gray-400">+ &pound;10/month hosting & updates</p>
+          <ul class="mt-6 flex-1 space-y-3">
+            {["Professional custom design", "Mobile responsive", "Booking integration built-in", "SEO optimised", "Google Maps & reviews", "Free updates included"].map((f) => (
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="/get-started/" class="mt-8 block rounded-lg border-2 border-charcoal py-3 text-center text-sm font-semibold text-charcoal transition-all duration-200 hover:bg-charcoal hover:text-white">Get a Website</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Problem strip marquee -->
   <section class="overflow-hidden border-y border-gray-100 bg-gray-50 py-4">
     <div class="flex animate-marquee whitespace-nowrap">
@@ -280,69 +342,6 @@ const schema = [
           </div>
         ))}
       </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section class="bg-white py-20" id="pricing">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Pricing</p>
-        <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Simple Pricing. No Surprises.</h2>
-        <p class="mx-auto mt-4 max-w-lg text-gray-500">No commission. No per-booking fees. No contracts. Cancel anytime.</p>
-      </div>
-      <div class="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
-        <!-- Solo -->
-        <div class="relative flex flex-col rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-          <h3 class="text-center text-lg font-bold text-charcoal">Solo</h3>
-          <p class="mt-1 text-center text-sm text-gray-500">For individual barbers & hairdressers</p>
-          <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;9</span><span class="text-sm text-gray-400"> /month</span></p>
-          <ul class="mt-6 flex-1 space-y-3">
-            {["1 staff member", "Unlimited bookings", "WhatsApp notifications", "Online booking page", "Auto-rebooking", "Gift vouchers"].map((f) => (
-              <li class="flex items-center gap-3 text-sm text-gray-600">
-                <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                {f}
-              </li>
-            ))}
-          </ul>
-          <a href="/get-started/" class="mt-8 block rounded-lg border-2 border-charcoal py-3 text-center text-sm font-semibold text-charcoal transition-all duration-200 hover:bg-charcoal hover:text-white">Get Started</a>
-        </div>
-
-        <!-- Shop -->
-        <div class="relative flex flex-col rounded-2xl border-2 border-mint bg-mint/5 p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-mint px-4 py-1 text-xs font-bold uppercase text-white">Most Popular</div>
-          <h3 class="text-center text-lg font-bold text-charcoal">Shop</h3>
-          <p class="mt-1 text-center text-sm text-gray-500">For salons & barbershops with a team</p>
-          <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;29</span><span class="text-sm text-gray-400"> /month</span></p>
-          <ul class="mt-6 flex-1 space-y-3">
-            {["Unlimited staff", "Unlimited bookings", "Everything in Solo", "Chair rental listing", "Staff substitution", "Discovery & aggregation", "Holiday & sick day management"].map((f) => (
-              <li class="flex items-center gap-3 text-sm text-gray-600">
-                <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                {f}
-              </li>
-            ))}
-          </ul>
-          <a href="/get-started/" class="mt-8 block rounded-lg bg-mint py-3 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Get Started</a>
-        </div>
-
-        <!-- Website -->
-        <div class="relative flex flex-col rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-          <h3 class="text-center text-lg font-bold text-charcoal">Website</h3>
-          <p class="mt-1 text-center text-sm text-gray-500">Custom website for your shop</p>
-          <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;150</span><span class="text-sm text-gray-400"> one-off</span></p>
-          <p class="mt-1 text-center text-xs text-gray-400">+ &pound;10/month hosting & updates</p>
-          <ul class="mt-6 flex-1 space-y-3">
-            {["Professional custom design", "Mobile responsive", "Booking integration built-in", "SEO optimised", "Google Maps & reviews", "Free updates included"].map((f) => (
-              <li class="flex items-center gap-3 text-sm text-gray-600">
-                <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                {f}
-              </li>
-            ))}
-          </ul>
-          <a href="/get-started/" class="mt-8 block rounded-lg border-2 border-charcoal py-3 text-center text-sm font-semibold text-charcoal transition-all duration-200 hover:bg-charcoal hover:text-white">Get a Website</a>
-        </div>
-      </div>
-
     </div>
   </section>
 
