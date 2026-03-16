@@ -2,25 +2,23 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const comparisonFeatures = [
-  { feature: "Staff members", solo: "1", shop: "Unlimited", website: "N/A" },
-  { feature: "Unlimited bookings", solo: true, shop: true, website: false },
-  { feature: "WhatsApp notifications", solo: true, shop: true, website: false },
-  { feature: "Online booking page", solo: true, shop: true, website: true },
-  { feature: "Auto-rebooking", solo: true, shop: true, website: false },
-  { feature: "Gift vouchers", solo: true, shop: true, website: false },
-  { feature: "Chair rental listing", solo: false, shop: true, website: false },
-  { feature: "Staff substitution", solo: false, shop: true, website: false },
-  { feature: "Discovery & aggregation", solo: false, shop: true, website: false },
-  { feature: "Holiday & sick day management", solo: false, shop: true, website: false },
-  { feature: "Custom website design", solo: false, shop: false, website: true },
-  { feature: "Mobile responsive", solo: false, shop: false, website: true },
-  { feature: "SEO optimised", solo: false, shop: false, website: true },
-  { feature: "Google Maps & reviews", solo: false, shop: false, website: true },
-  { feature: "Booking integration", solo: false, shop: false, website: true },
+  { feature: "Staff members", solo: "1", shop: "Unlimited" },
+  { feature: "Unlimited bookings", solo: true, shop: true },
+  { feature: "Online booking page", solo: true, shop: true },
+  { feature: "Email confirmations", solo: true, shop: true },
+  { feature: "Auto-rebooking", solo: true, shop: true },
+  { feature: "Gift vouchers", solo: true, shop: true },
+  { feature: "No-show tracking", solo: true, shop: true },
+  { feature: "Simple dashboard", solo: true, shop: true },
+  { feature: "Chair rental listing", solo: false, shop: true },
+  { feature: "Staff substitution", solo: false, shop: true },
+  { feature: "Discovery & aggregation", solo: false, shop: true },
+  { feature: "Holiday & sick day management", solo: false, shop: true },
+  { feature: "Revenue reports", solo: false, shop: true },
 ];
 ---
 
-<BaseLayout title="Pricing | Apptmint" description="Simple pricing for barbers and hairdressers. Solo plan from £9/month, Shop plan £19/month. No commission, no contracts, cancel anytime.">
+<BaseLayout title="Pricing | Apptmint" description="Simple pricing for barbers and hairdressers. Solo plan from £9/month, Shop plan £29/month. WhatsApp bolt-on £10/month. No commission, no contracts.">
 
   <section class="bg-charcoal py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -32,16 +30,16 @@ const comparisonFeatures = [
     </div>
   </section>
 
+  <!-- Plans -->
   <section class="bg-white py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
-        <!-- Solo -->
+      <div class="mx-auto grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-2">
         <div class="relative flex flex-col rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           <h3 class="text-center text-lg font-bold text-charcoal">Solo</h3>
           <p class="mt-1 text-center text-sm text-gray-500">For individual barbers & hairdressers</p>
           <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;9</span><span class="text-sm text-gray-400"> /month</span></p>
           <ul class="mt-6 flex-1 space-y-3">
-            {["1 staff member", "Unlimited bookings", "WhatsApp notifications", "Online booking page", "Auto-rebooking", "Gift vouchers"].map((f) => (
+            {["1 staff member", "Unlimited bookings", "Online booking page", "Email confirmations", "Auto-rebooking", "Gift vouchers", "No-show tracking", "Simple dashboard"].map((f) => (
               <li class="flex items-center gap-3 text-sm text-gray-600">
                 <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 {f}
@@ -51,14 +49,13 @@ const comparisonFeatures = [
           <a href="/get-started/" class="mt-8 block rounded-lg border-2 border-charcoal py-3 text-center text-sm font-semibold text-charcoal transition-all duration-200 hover:bg-charcoal hover:text-white">Get Started</a>
         </div>
 
-        <!-- Shop -->
         <div class="relative flex flex-col rounded-2xl border-2 border-mint bg-mint/5 p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-mint px-4 py-1 text-xs font-bold uppercase text-white">Most Popular</div>
           <h3 class="text-center text-lg font-bold text-charcoal">Shop</h3>
           <p class="mt-1 text-center text-sm text-gray-500">For salons & barbershops with a team</p>
           <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;29</span><span class="text-sm text-gray-400"> /month</span></p>
           <ul class="mt-6 flex-1 space-y-3">
-            {["Unlimited staff", "Unlimited bookings", "Everything in Solo", "Chair rental listing", "Staff substitution", "Discovery & aggregation", "Holiday & sick day management"].map((f) => (
+            {["Unlimited staff", "Unlimited bookings", "Everything in Solo", "Chair rental listing", "Staff substitution", "Discovery & aggregation", "Holiday & sick day management", "Revenue reports"].map((f) => (
               <li class="flex items-center gap-3 text-sm text-gray-600">
                 <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 {f}
@@ -67,22 +64,39 @@ const comparisonFeatures = [
           </ul>
           <a href="/get-started/" class="mt-8 block rounded-lg bg-mint py-3 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Get Started</a>
         </div>
+      </div>
 
-        <!-- Website -->
-        <div class="relative flex flex-col rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-          <h3 class="text-center text-lg font-bold text-charcoal">Website</h3>
-          <p class="mt-1 text-center text-sm text-gray-500">Custom website for your shop</p>
-          <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;150</span><span class="text-sm text-gray-400"> one-off</span></p>
-          <p class="mt-1 text-center text-xs text-gray-400">+ &pound;10/month hosting & updates</p>
-          <ul class="mt-6 flex-1 space-y-3">
-            {["Professional custom design", "Mobile responsive", "Booking integration built-in", "SEO optimised", "Google Maps & reviews", "Free updates included"].map((f) => (
-              <li class="flex items-center gap-3 text-sm text-gray-600">
-                <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                {f}
-              </li>
-            ))}
-          </ul>
-          <a href="/get-started/" class="mt-8 block rounded-lg border-2 border-charcoal py-3 text-center text-sm font-semibold text-charcoal transition-all duration-200 hover:bg-charcoal hover:text-white">Get a Website</a>
+      <!-- Bolt-ons -->
+      <div class="mx-auto mt-12 max-w-3xl">
+        <p class="mb-4 text-center text-xs font-bold uppercase tracking-[0.2em] text-gray-400">Add to any plan</p>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div class="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-5">
+            <div class="flex items-center gap-4">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-[#25D366]/10 text-[#25D366]">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-charcoal">WhatsApp Integration</p>
+                <p class="text-xs text-gray-500">Bookings, confirmations & reminders via WhatsApp. 2,400 messages/month included.</p>
+              </div>
+            </div>
+            <p class="ml-4 flex-shrink-0 text-lg font-black text-charcoal">+&pound;10<span class="text-xs font-normal text-gray-400">/mo</span></p>
+          </div>
+          <div class="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-5">
+            <div class="flex items-center gap-4">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-charcoal">Custom Website</p>
+                <p class="text-xs text-gray-500">Professional design, mobile responsive, SEO, Google Maps & reviews. Booking built-in.</p>
+              </div>
+            </div>
+            <div class="ml-4 flex-shrink-0 text-right">
+              <p class="text-lg font-black text-charcoal">&pound;150</p>
+              <p class="text-[10px] text-gray-400">one-off + &pound;10/mo</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -95,21 +109,20 @@ const comparisonFeatures = [
         <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Compare Plans</p>
         <h2 class="mt-4 text-3xl font-black text-charcoal sm:text-4xl">Full feature breakdown</h2>
       </div>
-      <div class="mx-auto mt-14 max-w-4xl overflow-x-auto">
+      <div class="mx-auto mt-14 max-w-2xl overflow-x-auto">
         <table class="w-full text-left text-sm">
           <thead>
             <tr class="border-b-2 border-gray-200">
               <th class="pb-4 pr-4 font-semibold text-charcoal">Feature</th>
               <th class="pb-4 px-4 text-center font-semibold text-charcoal">Solo</th>
               <th class="pb-4 px-4 text-center font-semibold text-mint-dark">Shop</th>
-              <th class="pb-4 pl-4 text-center font-semibold text-charcoal">Website</th>
             </tr>
           </thead>
           <tbody>
             {comparisonFeatures.map((row) => (
               <tr class="border-b border-gray-200">
                 <td class="py-3 pr-4 text-gray-600">{row.feature}</td>
-                {[row.solo, row.shop, row.website].map((val) => (
+                {[row.solo, row.shop].map((val) => (
                   <td class="py-3 px-4 text-center">
                     {val === true ? (
                       <svg class="mx-auto h-5 w-5 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -140,8 +153,9 @@ const comparisonFeatures = [
           { q: "Are there any setup fees?", a: "No. Sign up and start using it. Free onboarding included." },
           { q: "Do you charge per appointment?", a: "No. All plans include unlimited appointments. No per-booking fees, no commission." },
           { q: "Can I cancel at any time?", a: "Yes. No lock-in contracts. Cancel whenever you want and your plan stays active until the end of the billing period." },
-          { q: "What's included in the website add-on?", a: "A custom-designed, mobile-responsive website with your branding, booking integration, Google Maps, reviews, and basic SEO. We build it, you own it." },
-          { q: "Can I upgrade later?", a: "Yes. Move from Solo to Shop at any time. You only pay the difference for the rest of your billing period." },
+          { q: "What does the WhatsApp bolt-on include?", a: "Booking confirmations, reminders, and client-initiated booking via WhatsApp. 2,400 messages per month included, which covers most shops comfortably. No per-message charges within that limit." },
+          { q: "What's included in the website add-on?", a: "A custom-designed, mobile-responsive website with your branding, booking integration, Google Maps, reviews, and basic SEO. We build it, you own it. The £10/month covers hosting and updates." },
+          { q: "Can I upgrade later?", a: "Yes. Move from Solo to Shop at any time, or add WhatsApp whenever you're ready. You only pay the difference for the rest of your billing period." },
           { q: "Is there a free trial?", a: "Yes. 30 days, full access, no credit card required." },
         ].map((faq) => (
           <details class="group border-b border-gray-200">

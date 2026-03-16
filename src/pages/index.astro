@@ -156,14 +156,15 @@ const schema = [
         <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Simple Pricing. No Surprises.</h2>
         <p class="mx-auto mt-4 max-w-lg text-gray-500">No commission. No per-booking fees. No contracts. Cancel anytime.</p>
       </div>
-      <div class="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
+      <!-- Two main plans -->
+      <div class="mx-auto mt-14 grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-2">
         <!-- Solo -->
         <div class="relative flex flex-col rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           <h3 class="text-center text-lg font-bold text-charcoal">Solo</h3>
           <p class="mt-1 text-center text-sm text-gray-500">For individual barbers & hairdressers</p>
           <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;9</span><span class="text-sm text-gray-400"> /month</span></p>
           <ul class="mt-6 flex-1 space-y-3">
-            {["1 staff member", "Unlimited bookings", "WhatsApp notifications", "Online booking page", "Auto-rebooking", "Gift vouchers"].map((f) => (
+            {["1 staff member", "Unlimited bookings", "Online booking page", "Email confirmations", "Auto-rebooking", "Gift vouchers", "No-show tracking", "Simple dashboard"].map((f) => (
               <li class="flex items-center gap-3 text-sm text-gray-600">
                 <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 {f}
@@ -180,7 +181,7 @@ const schema = [
           <p class="mt-1 text-center text-sm text-gray-500">For salons & barbershops with a team</p>
           <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;29</span><span class="text-sm text-gray-400"> /month</span></p>
           <ul class="mt-6 flex-1 space-y-3">
-            {["Unlimited staff", "Unlimited bookings", "Everything in Solo", "Chair rental listing", "Staff substitution", "Discovery & aggregation", "Holiday & sick day management"].map((f) => (
+            {["Unlimited staff", "Unlimited bookings", "Everything in Solo", "Chair rental listing", "Staff substitution", "Discovery & aggregation", "Holiday & sick day management", "Revenue reports"].map((f) => (
               <li class="flex items-center gap-3 text-sm text-gray-600">
                 <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 {f}
@@ -189,22 +190,42 @@ const schema = [
           </ul>
           <a href="/get-started/" class="mt-8 block rounded-lg bg-mint py-3 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Get Started</a>
         </div>
+      </div>
 
-        <!-- Website -->
-        <div class="relative flex flex-col rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-          <h3 class="text-center text-lg font-bold text-charcoal">Website</h3>
-          <p class="mt-1 text-center text-sm text-gray-500">Custom website for your shop</p>
-          <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;150</span><span class="text-sm text-gray-400"> one-off</span></p>
-          <p class="mt-1 text-center text-xs text-gray-400">+ &pound;10/month hosting & updates</p>
-          <ul class="mt-6 flex-1 space-y-3">
-            {["Professional custom design", "Mobile responsive", "Booking integration built-in", "SEO optimised", "Google Maps & reviews", "Free updates included"].map((f) => (
-              <li class="flex items-center gap-3 text-sm text-gray-600">
-                <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                {f}
-              </li>
-            ))}
-          </ul>
-          <a href="/get-started/" class="mt-8 block rounded-lg border-2 border-charcoal py-3 text-center text-sm font-semibold text-charcoal transition-all duration-200 hover:bg-charcoal hover:text-white">Get a Website</a>
+      <!-- Bolt-ons -->
+      <div class="mx-auto mt-12 max-w-3xl">
+        <p class="mb-4 text-center text-xs font-bold uppercase tracking-[0.2em] text-gray-400">Add to any plan</p>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <!-- WhatsApp bolt-on -->
+          <div class="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-5">
+            <div class="flex items-center gap-4">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-[#25D366]/10 text-[#25D366]">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-charcoal">WhatsApp Integration</p>
+                <p class="text-xs text-gray-500">Bookings, confirmations & reminders via WhatsApp. 2,400 messages/month included.</p>
+              </div>
+            </div>
+            <p class="ml-4 flex-shrink-0 text-lg font-black text-charcoal">+&pound;10<span class="text-xs font-normal text-gray-400">/mo</span></p>
+          </div>
+
+          <!-- Website bolt-on -->
+          <div class="flex items-center justify-between rounded-xl border border-gray-200 bg-white p-5">
+            <div class="flex items-center gap-4">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div>
+                <p class="text-sm font-bold text-charcoal">Custom Website</p>
+                <p class="text-xs text-gray-500">Professional design, mobile responsive, SEO, Google Maps & reviews. Booking built-in.</p>
+              </div>
+            </div>
+            <div class="ml-4 flex-shrink-0 text-right">
+              <p class="text-lg font-black text-charcoal">&pound;150</p>
+              <p class="text-[10px] text-gray-400">one-off + &pound;10/mo</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
