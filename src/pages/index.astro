@@ -345,6 +345,65 @@ const schema = [
     </div>
   </section>
 
+  <!-- Chair Rental: free hook -->
+  <section class="relative overflow-hidden bg-charcoal py-20">
+    <div class="absolute inset-0 bg-gradient-to-br from-mint/10 via-transparent to-accent/5"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <div>
+          <span class="inline-block rounded-full bg-mint/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-mint-light">Free for Everyone</span>
+          <h2 class="mt-4 text-3xl font-black text-white sm:text-4xl">Got an empty chair? List it for free.</h2>
+          <p class="mt-4 max-w-lg leading-relaxed text-gray-300">
+            The Apptmint Chair Marketplace connects shop owners with freelance barbers looking
+            for space. No commission, no fees, no catch. Just post your listing and we'll match
+            you with the right people.
+          </p>
+          <ul class="mt-6 space-y-3">
+            {["Free for all shops and barbers", "No commission on any deal", "Browse by location across the UK", "Available to everyone, no subscription needed"].map((item) => (
+              <li class="flex items-start gap-3 text-sm text-gray-300">
+                <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="/chairs/" class="rounded-lg bg-mint px-7 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">
+              List a Chair for Free
+            </a>
+            <a href="/chairs/" class="rounded-lg border-2 border-white/20 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:border-mint hover:text-mint">
+              Find a Chair Near You
+            </a>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <div class="space-y-4">
+            {[
+              { shop: "Sharp Cuts", area: "Camden", chair: "Chair 3", days: "Tue & Wed", price: "40" },
+              { shop: "Blade & Fade", area: "Shoreditch", chair: "Chair 2", days: "Weekdays", price: "50" },
+              { shop: "The Parlour", area: "Brixton", chair: "Chair 1", days: "Mon, Thu, Fri", price: "35" },
+            ].map((listing) => (
+              <div class="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+                <div class="flex items-center gap-4">
+                  <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-mint/20 text-sm font-bold text-mint">
+                    {listing.shop.split(" ").map((w: string) => w[0]).join("").slice(0, 2)}
+                  </div>
+                  <div>
+                    <p class="font-semibold text-white">{listing.shop}, {listing.area}</p>
+                    <p class="text-sm text-gray-400">{listing.chair}, {listing.days}</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="text-lg font-black text-white">&pound;{listing.price}</p>
+                  <p class="text-xs text-gray-400">/day</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="bg-gray-50 py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
