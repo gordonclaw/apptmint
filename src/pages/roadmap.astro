@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Roadmap | Apptmint"
+  description="See what's coming next for Apptmint. Our product roadmap for scheduling, CRM, billing, operations and AI features."
+  noindex={true}
+>
+  <section class="bg-charcoal py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Roadmap</p>
+        <h1 class="mt-4 text-4xl font-black text-white sm:text-5xl">What's coming next</h1>
+        <p class="mt-6 text-lg leading-relaxed text-gray-400">
+          We're building Apptmint in phases. Here's what's live, what's next, and what's on the horizon.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="space-y-16">
+        <!-- Phase 1: MVP (Live) -->
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="rounded-full bg-mint px-3 py-1 text-xs font-bold uppercase text-white">Live</span>
+            <h2 class="text-xl font-black text-charcoal">Phase 1: Core Booking</h2>
+          </div>
+          <ul class="mt-6 space-y-3">
+            {[
+              "WhatsApp-native booking",
+              "Online booking page",
+              "Auto-rebooking (recurring appointments)",
+              "WhatsApp reminders with one-tap confirm",
+              "Gift vouchers (sell and redeem online)",
+              "Holiday and sick day management",
+              "Staff substitution",
+              "No-show tracking",
+              "Chair rental marketplace",
+              "Discovery (nearby shop alternatives)",
+              "Simple dashboard (mobile-first)",
+              "Revenue reporting",
+            ].map((f) => (
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Phase 2: CRM & Payments -->
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase text-white">Next</span>
+            <h2 class="text-xl font-black text-charcoal">Phase 2: CRM & Payments</h2>
+          </div>
+          <ul class="mt-6 space-y-3">
+            {[
+              "Client profiles: full history, session notes, documents",
+              "Auto-segmentation: active, lapsed, pack balance low",
+              "Targeted messaging: birthday offers, reactivation campaigns",
+              "Unified inbox: all client messages in one thread",
+              "Health forms and consent management",
+              "Stripe payments: card, Apple Pay, Google Pay, Open Banking",
+              "MTD-compliant invoicing: auto-generated, correct VAT handling",
+              "Session packs and subscriptions: bundles, auto-track balances",
+              "Per-staff cash drawers: daily totals, close-of-day reports",
+              "Deposit collection at booking",
+            ].map((f) => (
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <svg class="h-4 w-4 flex-shrink-0 text-gray-300" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7" /></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Phase 3: Operations & AI -->
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="rounded-full bg-gray-200 px-3 py-1 text-xs font-bold uppercase text-gray-600">Later</span>
+            <h2 class="text-xl font-black text-charcoal">Phase 3: Operations & AI</h2>
+          </div>
+          <ul class="mt-6 space-y-3">
+            {[
+              "Payroll and commissions: percentage or flat rate, export-ready",
+              "Stock management: consumables tracking, reorder alerts",
+              "Business reports: occupancy, revenue by service/staff, trends",
+              "Clinical notes: structured session notes, access controls",
+              "Multi-location support",
+              "Mint AI receptionist: WhatsApp-based, handles bookings 24/7",
+              "Waitlist with auto-notify",
+              "Room and resource allocation",
+              "Embeddable booking widget",
+              "API and webhook access",
+              "GoHighLevel integration",
+            ].map((f) => (
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <svg class="h-4 w-4 flex-shrink-0 text-gray-300" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7" /></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
