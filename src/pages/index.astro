@@ -25,9 +25,9 @@ const schema = [
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "GBP",
-      lowPrice: "29",
-      highPrice: "99",
-      offerCount: "3",
+      lowPrice: "9",
+      highPrice: "19",
+      offerCount: "2",
     },
     featureList: [
       "Online booking",
@@ -411,46 +411,72 @@ const schema = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Pricing</p>
-        <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Simple pricing. No surprises.</h2>
-        <p class="mx-auto mt-4 max-w-md text-gray-500">30-day free trial on all plans. No setup fee. Cancel any time.</p>
+        <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Simple Pricing. No Surprises.</h2>
+        <p class="mx-auto mt-4 max-w-lg text-gray-500">No commission. No per-booking fees. No contracts. Cancel anytime.</p>
       </div>
       <div class="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
-        {[
-          { name: "Starter", price: "29", desc: "Solo practitioner. Core scheduling + payments.", features: ["Smart calendar", "Online booking page", "Stripe payments", "MTD invoicing", "Email reminders", "1 staff member"], highlight: false },
-          { name: "Growth", price: "59", desc: "Small team. Adds CRM, reminders, packs.", features: ["Everything in Starter", "Up to 5 staff", "Client CRM & profiles", "WhatsApp/SMS reminders", "Session packs & subscriptions", "Business reports"], highlight: true, badge: "Most Popular" },
-          { name: "Pro", price: "99", desc: "Multi-staff. Payroll, reports, Mint AI, API.", features: ["Everything in Growth", "Unlimited staff", "Mint AI receptionist", "Payroll & commissions", "Stock management", "API & webhook access", "Priority support"], highlight: false },
-        ].map((plan) => (
-          <div class:list={["relative flex flex-col rounded-2xl border-2 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl", plan.highlight ? "border-mint bg-mint/5 shadow-lg" : "border-gray-100 bg-white shadow-sm"]}>
-            {plan.badge && (<div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-mint px-4 py-1 text-xs font-bold uppercase text-white">{plan.badge}</div>)}
-            <h3 class="text-center text-lg font-bold text-charcoal">{plan.name}</h3>
-            <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;{plan.price}</span><span class="text-sm text-gray-400">/month</span></p>
-            <p class="mt-2 text-center text-sm text-gray-500">{plan.desc}</p>
-            <ul class="mt-6 flex-1 space-y-3">
-              {plan.features.map((f) => (
-                <li class="flex items-center gap-3 text-sm text-gray-600">
-                  <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a href="/get-started/" class:list={["mt-8 block rounded-lg py-3 text-center text-sm font-semibold transition-all duration-200", plan.highlight ? "bg-mint text-white hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25" : "border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-white"]}>Start Free Trial</a>
-          </div>
-        ))}
+        <!-- Solo -->
+        <div class="relative flex flex-col rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+          <h3 class="text-center text-lg font-bold text-charcoal">Solo</h3>
+          <p class="mt-1 text-center text-sm text-gray-500">For individual barbers & hairdressers</p>
+          <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;9</span><span class="text-sm text-gray-400"> /month</span></p>
+          <ul class="mt-6 flex-1 space-y-3">
+            {["1 staff member", "Unlimited bookings", "WhatsApp notifications", "Online booking page", "Auto-rebooking", "Gift vouchers"].map((f) => (
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="/get-started/" class="mt-8 block rounded-lg border-2 border-charcoal py-3 text-center text-sm font-semibold text-charcoal transition-all duration-200 hover:bg-charcoal hover:text-white">Get Started</a>
+        </div>
+
+        <!-- Shop -->
+        <div class="relative flex flex-col rounded-2xl border-2 border-mint bg-mint/5 p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-mint px-4 py-1 text-xs font-bold uppercase text-white">Most Popular</div>
+          <h3 class="text-center text-lg font-bold text-charcoal">Shop</h3>
+          <p class="mt-1 text-center text-sm text-gray-500">For salons & barbershops with a team</p>
+          <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;19</span><span class="text-sm text-gray-400"> /month</span></p>
+          <ul class="mt-6 flex-1 space-y-3">
+            {["Unlimited staff", "Unlimited bookings", "Everything in Solo", "Chair rental listing", "Staff substitution", "Discovery & aggregation", "Holiday & sick day management"].map((f) => (
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="/get-started/" class="mt-8 block rounded-lg bg-mint py-3 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Get Started</a>
+        </div>
+
+        <!-- Website -->
+        <div class="relative flex flex-col rounded-2xl border-2 border-gray-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+          <h3 class="text-center text-lg font-bold text-charcoal">Website</h3>
+          <p class="mt-1 text-center text-sm text-gray-500">Custom website for your shop</p>
+          <p class="mt-4 text-center"><span class="text-4xl font-black text-charcoal">&pound;150</span><span class="text-sm text-gray-400"> one-off</span></p>
+          <p class="mt-1 text-center text-xs text-gray-400">+ &pound;10/month hosting & updates</p>
+          <ul class="mt-6 flex-1 space-y-3">
+            {["Professional custom design", "Mobile responsive", "Booking integration built-in", "SEO optimised", "Google Maps & reviews", "Free updates included"].map((f) => (
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <svg class="h-4 w-4 flex-shrink-0 text-mint" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="/get-started/" class="mt-8 block rounded-lg border-2 border-charcoal py-3 text-center text-sm font-semibold text-charcoal transition-all duration-200 hover:bg-charcoal hover:text-white">Get a Website</a>
+        </div>
       </div>
-      <p class="mt-8 text-center text-sm text-gray-400">Save 20% with annual billing. <a href="/pricing/" class="font-medium text-mint hover:text-mint-dark">See full pricing breakdown</a></p>
 
       <!-- Competitor comparison -->
       <div class="mx-auto mt-16 max-w-2xl rounded-2xl border border-gray-100 bg-gray-50 p-8">
         <h3 class="text-center text-lg font-bold text-charcoal">How we compare</h3>
-        <p class="mt-2 text-center text-sm text-gray-500">A 4-person practice on our Growth plan:</p>
-        <p class="mt-1 text-center text-2xl font-black text-mint">&pound;59/month</p>
+        <p class="mt-2 text-center text-sm text-gray-500">A 4-chair barbershop on our Shop plan:</p>
+        <p class="mt-1 text-center text-2xl font-black text-mint">&pound;19/month</p>
         <div class="mt-6 space-y-3">
           {[
-            { name: "Cliniko", price: "&pound;75/mo", note: "no WhatsApp, no AI" },
+            { name: "Nearcut", price: "&pound;57.50/mo", note: "&pound;10/barber + add-ons" },
+            { name: "Booksy", price: "&pound;55/mo", note: "&pound;40 + &pound;5/barber" },
             { name: "Fresha", price: "20% commission", note: "per transaction" },
-            { name: "Booksy", price: "&pound;40/mo + &pound;5/staff", note: "adds up fast" },
-            { name: "Nearcut", price: "&pound;10/staff/mo", note: "barber-only, limited features" },
-            { name: "Setmore", price: "&pound;39/mo", note: "no UK invoicing compliance" },
+            { name: "Setmore", price: "&pound;39/mo", note: "limited features" },
           ].map((c) => (
             <div class="flex items-center justify-between rounded-lg bg-white px-4 py-3 text-sm">
               <span class="font-medium text-gray-500 line-through">{c.name}</span>
