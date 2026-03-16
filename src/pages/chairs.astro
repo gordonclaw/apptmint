@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ChairForm from "../components/ChairForm";
+import ChairMap from "../components/ChairMap";
 
 const schema = {
   "@context": "https://schema.org",
@@ -125,8 +126,22 @@ const schema = {
     </div>
   </section>
 
+  <!-- Chair demand map -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 text-center">
+        <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Where the Demand Is</p>
+        <h2 class="mt-2 text-3xl font-black text-charcoal sm:text-4xl">Chair demand across the UK</h2>
+        <p class="mx-auto mt-4 max-w-md text-gray-500">
+          See where barbers are looking for chairs and where shops have availability.
+        </p>
+      </div>
+      <ChairMap client:only="react" />
+    </div>
+  </section>
+
   <!-- Sign up form -->
-  <section class="bg-white py-20" id="list">
+  <section class="bg-gray-50 py-20" id="list">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-sm font-bold uppercase tracking-[0.2em] text-mint">Get Listed</p>

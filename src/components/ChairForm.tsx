@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { getGroupedLocations } from "../lib/uk-locations";
 
 type FormType = "have" | "need" | null;
 
@@ -252,7 +253,16 @@ export default function ChairForm() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="mb-1.5 block text-sm font-medium text-gray-700">Area / Town</label>
-              <input type="text" name="location" required placeholder="e.g. Camden, London" className={inputClass} />
+              <select name="location" required className={inputClass} defaultValue="">
+                <option value="" disabled>Select location...</option>
+                {Object.entries(getGroupedLocations()).map(([group, locations]) => (
+                  <optgroup key={group} label={group}>
+                    {locations.map((loc) => (
+                      <option key={loc.name} value={loc.name}>{loc.name}</option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
             </div>
             <div>
               <label className="mb-1.5 block text-sm font-medium text-gray-700">Postcode</label>
@@ -350,6 +360,19 @@ export default function ChairForm() {
               placeholder={formType === "have" ? "e.g. mirror station, products included, parking nearby" : "e.g. recently qualified, specialise in fades, friendly and reliable"}
               className={`${inputClass} resize-y`}
             />
+          </div>
+
+          {/* GDPR consent */}
+          <div className="rounded-lg border border-gray-200 bg-white p-4">
+            <label className="flex items-start gap-3 text-sm text-gray-600">
+              <input type="checkbox" name="gdpr_consent" required className="mt-0.5 h-4 w-4 rounded border-gray-300 text-emerald-500 focus:ring-emerald-500/20" />
+              <span>
+                I consent to Apptmint storing my details to match me with available chairs/barbers.
+                My data will be retained for 2 years and I can request deletion at any time by emailing
+                <a href="mailto:hello@apptmint.co.uk" className="font-medium text-emerald-600 hover:underline"> hello@apptmint.co.uk</a>.
+                See our <a href="/privacy/" className="font-medium text-emerald-600 hover:underline">privacy policy</a>.
+              </span>
+            </label>
           </div>
 
           {error && <p className="text-sm text-red-500">{error}</p>}

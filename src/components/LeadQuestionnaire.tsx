@@ -421,6 +421,16 @@ export default function LeadQuestionnaire() {
               <input type="tel" value={data.phone} onChange={(e) => update("phone", e.target.value)} className={inputClass} />
             </div>
           </div>
+          <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+            <label className="flex items-start gap-3 text-sm text-gray-600">
+              <input type="checkbox" required className="mt-0.5 h-4 w-4 rounded border-gray-300 text-emerald-500 focus:ring-emerald-500/20" />
+              <span>
+                I consent to Apptmint storing my details to provide a digital audit and contact me with recommendations.
+                My data will be retained for 2 years and I can request deletion at any time.
+                See our <a href="/privacy/" className="font-medium text-emerald-600 hover:underline">privacy policy</a>.
+              </span>
+            </label>
+          </div>
         </div>
       )}
 
