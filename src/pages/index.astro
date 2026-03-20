@@ -55,8 +55,8 @@ const schema = [
 ---
 
 <BaseLayout
-  title="Apptmint | Appointment Booking Software for Barbers, Salons & Clinics | UK"
-  description="Booking system for UK barbers and hairdressers. WhatsApp bookings, online booking page, auto-rebooking, reminders, gift vouchers. From £9/month. No contracts, no commission."
+  title="Apptmint | Booking Software for Barbers & Salons"
+  description="Booking system for UK barbers and salons. WhatsApp bookings, reminders, auto-rebooking, gift vouchers. From £9/month. No contracts."
   schema={schema}
 >
   <!-- Hero -->
@@ -171,7 +171,7 @@ const schema = [
               </li>
             ))}
           </ul>
-          <a href="/get-started/" class="mt-8 block rounded-lg border-2 border-charcoal py-3 text-center text-sm font-semibold text-charcoal transition-all duration-200 hover:bg-charcoal hover:text-white">Get Started</a>
+          <a href="/get-started/" class="mt-8 block rounded-lg border-2 border-charcoal py-3 text-center text-sm font-semibold text-charcoal transition-all duration-200 hover:bg-charcoal hover:text-white">Try Solo Free</a>
         </div>
 
         <!-- Shop -->
@@ -188,7 +188,7 @@ const schema = [
               </li>
             ))}
           </ul>
-          <a href="/get-started/" class="mt-8 block rounded-lg bg-mint py-3 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Get Started</a>
+          <a href="/get-started/" class="mt-8 block rounded-lg bg-mint py-3 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-mint-dark hover:shadow-lg hover:shadow-mint/25">Try Shop Free</a>
         </div>
       </div>
 
@@ -263,7 +263,7 @@ const schema = [
             <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-red-100 text-red-500">
               <div class="h-5 w-5" set:html={p.icon} />
             </div>
-            <h3 class="font-bold text-charcoal">{p.title}</h3>
+            <p class="font-bold text-charcoal">{p.title}</p>
             <p class="mt-1 text-sm leading-relaxed text-gray-500">{p.desc}</p>
           </div>
         ))}
@@ -297,7 +297,7 @@ const schema = [
             <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-mint/10 text-mint transition-all duration-300 group-hover:bg-mint group-hover:text-white">
               <div class="h-5 w-5 transition-transform duration-300 group-hover:scale-110" set:html={f.icon} />
             </div>
-            <h3 class="font-bold text-charcoal">{f.title}</h3>
+            <p class="font-bold text-charcoal">{f.title}</p>
             <p class="mt-1 text-sm leading-relaxed text-gray-500">{f.desc}</p>
           </div>
         ))}
@@ -392,7 +392,7 @@ const schema = [
               List a Chair for Free
             </a>
             <a href="/chairs/" class="rounded-lg border-2 border-white/20 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:border-mint hover:text-mint">
-              Find a Chair Near You
+              Browse Available Chairs
             </a>
           </div>
         </div>

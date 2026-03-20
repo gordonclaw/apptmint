@@ -10,6 +10,16 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+
 [[redirects]]
   from = "https://www.apptmint.co.uk/*"
   to = "https://apptmint.co.uk/:splat"
